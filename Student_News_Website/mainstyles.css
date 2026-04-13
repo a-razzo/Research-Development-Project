@@ -1,0 +1,646 @@
+/* ═══════════════════════════════════════════════════════════════════
+   UNIVERSAL STYLINGS — Base styles applied to everything on the page
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Reset all default margins and padding to start with a clean slate */
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Make padding & borders count toward element width */
+  font-family: "Gilda Display", serif;
+}
+
+/* Give everything a golden outline when focused (keyboard navigation) */
+*:focus {
+  outline: 2px solid #ffc831;
+  outline-offset: 4px;
+  z-index: 50;
+}
+
+/* Hide focus outlines for mouse users (only show for keyboard) */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Dark green background with white text as our base color scheme */
+body{
+  background-color: #263527;
+  color: white;
+  overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
+  padding: 0 10%;
+  padding-top: 80px; /* Leave space for fixed navigation bar at top */
+}
+
+/* Add gold accent line beneath images for visual interest */
+img{
+  border-bottom: solid 6px #ffc831;
+}
+
+/* Center and space out all headings */
+h1, h2{
+  text-align: center;
+  padding: 1em 0;
+  color: #fff;
+}
+
+h1{
+  font-size: 60px;
+}
+
+h2{
+  font-size: 45px;
+}
+
+/* Make paragraphs easy to read with good line spacing */
+p{
+  font-size: 18px;
+  font-family: "Hind", sans-serif;
+  line-height: 1.5; /* Space out lines so text is less cramped */
+  padding: 0 1em;
+}
+
+/* Apply gold color to text marked with this class */
+.gold{
+  font-family: "Hind", sans-serif;
+  color: #ffc831;
+}
+
+/* All links are white by default */
+a{
+  color: white;
+}
+
+input{
+  padding: 1em 0;
+}
+
+/* Tagline/slogan styling — bold and centered */
+.slogan{
+  color: #E2C67B;
+  padding: 80px 10px;
+  font-weight: 600;
+  text-align: center;
+  font-size: 30px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   NAVIGATION BAR — The sleek header that stays at the top
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Main header container - fixed at top with modern styling */
+.header {
+  height: auto; /* Let content determine height instead of fixed height */
+  width: 100%;
+  /* Gradient background for modern aesthetic (blends two shades of dark green) */
+  background: linear-gradient(135deg, rgba(21, 39, 25, 0.98) 0%, rgba(39, 50, 40, 0.98) 100%);
+  backdrop-filter: blur(10px); /* Frosted glass effect - adds sophistication */
+  position: fixed;
+  top: 0;
+  z-index: 100; /* Stay above all other content */
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  border-bottom: 1px solid rgba(255, 200, 49, 0.1); /* Hint of gold line */
+  transition: all 0.3s ease; /* Smooth any changes (colors, shadows, etc) */
+}
+
+/* Flex layout keeps logo left, nav links center/right */
+nav {
+  display: flex;
+  padding: 0.8rem 2rem;
+  justify-content: space-between;
+  align-items: center;
+  height: 100%;
+  max-width: 1400px; /* Don't let content stretch too wide */
+  margin: 0 auto;
+  width: 100%;
+  gap: 2rem; /* Space between logo and nav items */
+}
+
+/* Logo container - won't shrink even if nav items are long */
+.logo-wrapper {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  height: auto;
+}
+
+/* Logo image styling with hover effect */
+.logo {
+  max-height: 70px;
+  width: auto;
+  border: none;
+  transition: transform 0.3s ease; /* Smooth scale-up on hover */
+}
+
+/* Make logo slightly bigger when hovering over it */
+.logo-wrapper:hover .logo {
+  transform: scale(1.05);
+}
+
+nav img {
+  width: auto;
+  filter: invert(100%); /* Turn dark images to light for visibility */
+}
+
+/* Navigation links container */
+.nav-links {
+  display: flex;
+  align-items: center;
+  flex: 1; /* Take remaining space */
+  text-align: right;
+  gap: 1rem;
+}
+
+/* List of actual nav links */
+.nav-links ul {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links ul li {
+  list-style: none;
+  padding: 0.5rem 0;
+  position: relative;
+}
+
+/* Individual nav link styling */
+.nav-links ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 0.75rem 1.25rem;
+  border-radius: 6px; /* Subtle rounded corners for modern look */
+  transition: all 0.3s ease; /* Smooth color/background changes */
+  display: inline-block;
+  position: relative; /* Needed for animated underline */
+}
+
+/* Animated underline that extends on hover - creates elegant effect */
+.nav-links ul li a::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 1.25rem;
+  width: 0; /* Starts at 0 width */
+  height: 2px;
+  background: linear-gradient(90deg, #ffc831, #e2b344); /* Golden gradient line */
+  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing for premium feel */
+}
+
+/* Expand underline and change color on hover */
+.nav-links ul li a:hover::before {
+  width: calc(100% - 2.5rem); /* Stretch to fill link width */
+}
+
+.nav-links ul li a:hover {
+  color: #ffc831; /* Turn gold */
+  background-color: rgba(255, 200, 49, 0.08); /* Subtle gold background */
+}
+
+/* Keep active link highlighted */
+.nav-links ul li a.active {
+  color: #ffc831;
+  background-color: rgba(255, 200, 49, 0.12);
+}
+
+.nav-links ul li a.active::before {
+  width: calc(100% - 2.5rem); /* Show underline on active link */
+}
+
+.nav-links ul li a:active {
+  color: #ffc831;
+}
+
+nav .fa {
+  display: none; /* Hidden on desktop, shown on mobile */
+}
+
+/* Hamburger menu button styling */
+.menu-btn {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 28px;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+  background-color: rgba(255, 200, 49, 0.1);
+  color: #ffc831;
+}
+
+.menu-btn:focus {
+  outline: 2px solid #ffc831;
+  outline-offset: 2px;
+}
+
+.page-intro {
+  padding: 1em 2em;
+  justify-self: center;
+  color: #E2C67B;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   CAROUSEL CONTAINER — Automatic image slideshow that cycles through photos
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Main carousel wrapper - two column layout (image on left, text on right) */
+.carousel-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1.5fr 3fr; /* Left column narrower for images */
+  gap: 1rem;
+  margin: 0 auto;
+  background-color: rgb(70, 70, 70);
+}
+
+/* Container that holds the sliding images */
+.container {
+  width: 100%;
+  overflow: hidden; /* Hide images that slide off screen */
+  opacity: 0.5; /* Make it semi-transparent by default */
+  max-height: 60vh; /* Limit height to 60% of viewport */
+}
+
+/* Flex wrapper holds all images side by side */
+.wrapper {
+  width: 100%;
+  display: flex;
+  animation: slide 18s infinite; /* Cycle through images every 18 seconds */
+}
+
+/* Animation that smoothly slides images left */
+@keyframes slide {
+  0%,  25%  { transform: translateX(0); }      /* Show first image */
+  30%, 50%  { transform: translateX(-100%); }  /* Slide to second image */
+  55%, 75%  { transform: translateX(-200%); }  /* Slide to third image */
+  80%, 100% { transform: translateX(-300%); }  /* Slide to fourth image */
+}
+
+/* Each image in the carousel */
+.carousel-img {
+  width: 100%;
+  flex-shrink: 0;
+  min-width: 100%;
+  object-fit: cover; /* Fill space while maintaining aspect ratio */
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   PROCESS PAGE CAROUSEL — Full width carousel with large feature images
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Change layout to wider carousel area */
+.process-carousel {
+  grid-template-columns: 1fr 2fr;  /* left text box | right carousel */
+  position: relative;
+}
+
+.process-carousel .container {
+  opacity: 1; /* Make carousel fully visible (not faded) */
+  max-height: 70vh; /* Slightly taller than regular carousel */
+}
+
+/* Text box on left side of process carousel */
+.carousel-text-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center the text */
+  padding: 2rem;
+  background-color: rgb(70, 70, 70);
+}
+
+/* Small text label above main heading */
+.carousel-label {
+  font-size: 16px;
+  color: #E2C67B;
+  font-family: "Hind", sans-serif;
+  padding: 0;
+  margin-bottom: 0.5rem;
+}
+
+/* Large heading in the carousel text box */
+.carousel-heading {
+  font-size: 60px;
+  text-align: left;
+  padding: 0;
+  color: #fff;
+  line-height: 1.1; /* Tighter spacing for large text */
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TRENDING CAROUSEL — Shows trending stories with left/right navigation arrows
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Section wrapper for trending carousel */
+.trending-carousel-section {
+  padding: 2rem 0;
+  background-color: #263527;
+}
+
+.trending-carousel-section h2 {
+  margin-bottom: 1rem;
+}
+
+/* Main carousel container */
+.trending-carousel {
+  position: relative;
+  width: 90%;
+  margin: 0 auto;
+  overflow: hidden; /* Hide images that scroll off screen */
+}
+
+/* Hide radio buttons - they're used for JS but we don't want to see them */
+.trending-carousel input[type="radio"] {
+  display: none;
+}
+
+/* TRACK — The invisible belt that holds all slides and moves smoothly */
+.trending-track {
+  display: flex;
+  transition: transform 0.5s ease; /* Smooth sliding animation */
+  width: calc(100% / 4 * 8); /* Calculate width for 8 slides visible at once */
+}
+
+/* Individual slide container */
+.trending-slide {
+  width: calc(100% / 8); /* Each slide takes up 1/8 of the track */
+  flex-shrink: 0;
+  padding: 0 0.5rem;
+}
+
+.trending-slide img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover; /* Fill space without stretching image */
+  display: block;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   TRACK POSITIONING — Controls which images are visible (done with CSS)
+   When you click a radio button, the track shifts to show different slides
+   ═══════════════════════════════════════════════════════════════════ */
+
+#t1:checked ~ .trending-track { transform: translateX(0%); }
+#t2:checked ~ .trending-track { transform: translateX(-12.5%); }
+#t3:checked ~ .trending-track { transform: translateX(-25%); }
+#t4:checked ~ .trending-track { transform: translateX(-37.5%); }
+#t5:checked ~ .trending-track { transform: translateX(-50%); }
+
+/* ═══════════════════════════════════════════════════════════════════
+   NAVIGATION ARROWS — Left/right buttons to scroll through slides
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Container positioned over the carousel for arrow buttons */
+.trending-arrows {
+  position: absolute;
+  top: 50%;
+  width: 100%;
+  transform: translateY(-50%); /* Center vertically */
+  pointer-events: none; /* Don't block clicks on carousel */
+}
+
+/* Individual arrow button styling */
+.arrow {
+  position: absolute;
+  display: none; /* Only show relevant arrows for current slide */
+  width: 50px;
+  height: 50px;
+  background-color: rgba(38, 53, 39, 0.85); /* Semi-transparent dark green */
+  border: 2px solid #ffc831;
+  color: #ffc831;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  pointer-events: all; /* Make clickable despite parent pointer-events:none */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  z-index: 10;
+}
+
+.arrow:hover {
+  background-color: #ffc831; /* Turn golden on hover */
+  color: #263527;
+}
+
+.arrow-prev { left: -1rem; }   /* Previous button on left */
+.arrow-next { right: -1rem; }  /* Next button on right */
+
+/* Show the correct arrows based on which slide is active */
+#t1:checked ~ .trending-arrows .t1-prev { display: flex; }
+#t1:checked ~ .trending-arrows .t1-next { display: flex; }
+
+#t2:checked ~ .trending-arrows .t2-prev { display: flex; }
+#t2:checked ~ .trending-arrows .t2-next { display: flex; }
+
+#t3:checked ~ .trending-arrows .t3-prev { display: flex; }
+#t3:checked ~ .trending-arrows .t3-next { display: flex; }
+
+#t4:checked ~ .trending-arrows .t4-prev { display: flex; }
+#t4:checked ~ .trending-arrows .t4-next { display: flex; }
+
+#t5:checked ~ .trending-arrows .t5-prev { display: flex; }
+#t5:checked ~ .trending-arrows .t5-next { display: flex; }
+
+/* Adjust carousel on tablet screens */
+@media (max-width: 1100px) {
+  .trending-track {
+    width: calc(100% / 2 * 8);
+  }
+
+  .trending-slide {
+    width: calc(100% / 8);
+  }
+
+  #t1:checked ~ .trending-track { transform: translateX(0%); }
+  #t2:checked ~ .trending-track { transform: translateX(-12.5%); }
+  #t3:checked ~ .trending-track { transform: translateX(-25%); }
+  #t4:checked ~ .trending-track { transform: translateX(-37.5%); }
+  #t5:checked ~ .trending-track { transform: translateX(-50%); }
+}
+
+/* Adjust carousel on mobile screens */
+@media (max-width: 700px) {
+  .trending-track {
+    width: calc(100% * 8);
+  }
+
+  .trending-slide {
+    width: calc(100% / 8);
+  }
+
+  .trending-slide img {
+    height: 200px; /* Smaller images on mobile */
+  }
+
+  #t1:checked ~ .trending-track { transform: translateX(0%); }
+  #t2:checked ~ .trending-track { transform: translateX(-12.5%); }
+  #t3:checked ~ .trending-track { transform: translateX(-25%); }
+  #t4:checked ~ .trending-track { transform: translateX(-37.5%); }
+  #t5:checked ~ .trending-track { transform: translateX(-50%); }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   RESPONSIVE DESIGN — Adapt layout for tablets and phones
+   Make sure everything looks great at every screen size!
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* TABLET SCREENS (1100px and below) */
+@media (max-width: 1100px) {
+  nav {
+    padding: 0.8rem 1.5rem;
+    gap: 1rem;
+  }
+
+  .nav-links ul li a {
+    padding: 0.5rem 1rem;
+    font-size: 15px; /* Slightly smaller text */
+  }
+
+  .nav-links ul li a::before {
+    left: 1rem; /* Adjust position of underline */
+  }
+
+  .nav-links ul li a:hover::before {
+    width: calc(100% - 2rem);
+  }
+}
+
+/* TABLET & SMALL LAPTOP (768px and below) — Switch to hamburger menu */
+@media (max-width: 768px) {
+  body {
+    padding-top: 60px; /* Shorter header on mobile */
+  }
+
+  nav {
+    padding: 0.8rem 1rem;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    max-height: 60px;
+  }
+
+  /* Move nav menu off-screen to the right, slides in on demand */
+  .nav-links {
+    position: fixed;
+    right: -250px; /* Hidden off-screen by default */
+    top: 60px;
+    left: auto;
+    width: 250px;
+    height: calc(100vh - 60px);
+    background: linear-gradient(135deg, rgba(21, 39, 25, 0.99) 0%, rgba(39, 50, 40, 0.99) 100%);
+    flex-direction: column; /* Stack items vertically */
+    text-align: left;
+    padding: 2rem 0;
+    gap: 0;
+    border-left: 1px solid rgba(255, 200, 49, 0.1);
+    overflow-y: auto;
+    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth slide animation */
+    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .nav-links ul {
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+  }
+
+  .nav-links ul li {
+    width: 100%;
+    padding: 0;
+  }
+
+  .nav-links ul li a {
+    width: 100%;
+    padding: 1rem 1.5rem;
+    border-radius: 0; /* No rounded corners on mobile nav */
+    font-size: 16px;
+  }
+
+  /* Hide the animated underline on mobile */
+  .nav-links ul li a::before {
+    display: none;
+  }
+
+  .nav-links ul li a:hover {
+    background-color: rgba(255, 200, 49, 0.15);
+    padding-left: 2rem; /* Indent on hover for feedback */
+  }
+
+  /* Active link styling — gold background with left border */
+  .nav-links ul li a.active {
+    background-color: rgba(255, 200, 49, 0.15);
+    border-left: 3px solid #ffc831;
+    padding-left: calc(1.5rem - 3px); /* Adjust for border width */
+  }
+
+  /* Show hamburger menu icon on mobile */
+  nav .fa {
+    display: block;
+  }
+
+  .menu-btn.fa-times {
+    align-self: flex-end;
+    margin-right: 1.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .menu-btn.fa-bars {
+    margin-left: auto;
+  }
+}
+
+/* SMALL PHONES (480px and below) */
+@media (max-width: 480px) {
+  nav {
+    padding: 0.6rem 1rem; /* Tighter padding on tiny screens */
+  }
+
+  .logo {
+    max-height: 50px; /* Smaller logo */
+  }
+
+  /* Mobile menu takes up full width on small phones */
+  .nav-links {
+    width: 100%;
+    right: -100%;
+    top: 55px;
+  }
+
+  .nav-links ul li a {
+    padding: 0.75rem 1rem;
+    font-size: 15px;
+  }
+
+  .menu-btn {
+    font-size: 24px; /* Smaller menu icons */
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   GLOBAL ANIMATIONS & EFFECTS
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* Make page scrolling smooth instead of jumpy */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Fade-in animation for menu items (for future use) */
+@keyframes slideInMenu {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

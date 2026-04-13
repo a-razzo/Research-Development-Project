@@ -1,0 +1,135 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="mainstyles.css"/>
+    <title>Edge Hill News - Home</title>
+</head>
+<body>
+    <header class="header">
+    <nav aria-label="Main navigation">
+  <div class="logo-wrapper">
+    <a href="home.html"><img class="logo" src="images/aurum-landscapes-logo.svg" alt="Home Page"></a>
+  </div>
+  <div class="nav-links" id="navLinks">
+    <button class="menu-btn fa fa-times" onclick="hideMenu()" aria-label="Close navigation menu"></button>
+    <ul>
+      <li><a href="about.html">EVENTS</a></li>
+      <li><a href="process.html">PEOPLE</a></li>
+      <li><a href="projects.html">TECHNOLOGY</a></li>
+    </ul>
+  </div>
+  <button class="fa fa-bars menu-btn" onclick="showMenu()" aria-label="Open navigation menu" aria-expanded="false"></button>
+</nav>
+  </header>
+  <section class="carousel-container process-carousel">
+  <div class="carousel-text-box">
+    <p class="carousel-label">Today on</p>
+    <h1 class="carousel-heading">Edge Hill News</h1>
+  </div>
+  <div class="container">
+    <div class="wrapper">
+      <img class="carousel-img" src="images/historic2.png" alt="#">
+      <img class="carousel-img" src="images/historic3.png" alt="#">
+      <img class="carousel-img" src="images/historic4.png" alt="#">
+      <img class="carousel-img" src="images/historic3.png" alt="#">
+    </div>
+  </div>
+</section>
+
+<section class="trending-carousel-section">
+  <h2>Trending Articles</h2>
+  <div class="trending-carousel">
+
+    <input type="radio" name="trending" id="t1" checked>
+    <input type="radio" name="trending" id="t2">
+    <input type="radio" name="trending" id="t3">
+    <input type="radio" name="trending" id="t4">
+    <input type="radio" name="trending" id="t5">
+
+    <div class="trending-track">
+      <div class="trending-slide">
+        <img src="images/historic2.png" alt="Article 1">
+      </div>
+      <div class="trending-slide">
+        <img src="images/historic3.png" alt="Article 2">
+      </div>
+      <div class="trending-slide">
+        <img src="images/historic4.png" alt="Article 3">
+      </div>
+      <div class="trending-slide">
+        <img src="images/historic3.png" alt="Article 4">
+      </div>
+      <div class="trending-slide">
+        <img src="images/historic2.png" alt="Article 5">
+      </div>
+      <div class="trending-slide">
+        <img src="images/historic3.png" alt="Article 6">
+      </div>
+      <div class="trending-slide">
+        <img src="images/historic4.png" alt="Article 7">
+      </div>
+      <div class="trending-slide">
+        <img src="images/historic3.png" alt="Article 8">
+      </div>
+    </div>
+
+    <div class="trending-arrows">
+      <label class="arrow arrow-prev t1-prev" for="t5">&#8592;</label>
+      <label class="arrow arrow-prev t2-prev" for="t1">&#8592;</label>
+      <label class="arrow arrow-prev t3-prev" for="t2">&#8592;</label>
+      <label class="arrow arrow-prev t4-prev" for="t3">&#8592;</label>
+      <label class="arrow arrow-prev t5-prev" for="t4">&#8592;</label>
+
+      <label class="arrow arrow-next t1-next" for="t2">&#8594;</label>
+      <label class="arrow arrow-next t2-next" for="t3">&#8594;</label>
+      <label class="arrow arrow-next t3-next" for="t4">&#8594;</label>
+      <label class="arrow arrow-next t4-next" for="t5">&#8594;</label>
+      <label class="arrow arrow-next t5-next" for="t1">&#8594;</label>
+    </div>
+
+  </div>
+</section>
+
+  <!------JavaScript which toggles menu (note: Claude AI was used to assist in the keyboard navigation implementation of the javascript.)------>
+      <script>
+
+        var navLinks = document.getElementById("navLinks");
+        var openBtn = document.querySelector('[aria-label="Open navigation menu"]');
+        var closeBtn = document.querySelector('[aria-label="Close navigation menu"]');
+        var navItems = navLinks.querySelectorAll('a, button');
+
+        function showMenu(){
+          navLinks.style.right = "0";
+          openBtn.setAttribute('aria-expanded', 'true');
+          navItems.forEach(item => item.setAttribute('tabindex', '0'));
+          closeBtn.focus();
+        }
+
+        function hideMenu(){
+          navLinks.style.right = "-200px";
+          openBtn.setAttribute('aria-expanded', 'false');
+          navItems.forEach(item => item.setAttribute('tabindex', '-1'));
+          openBtn.focus();
+        }
+
+        function handleResize(){
+          if(window.innerWidth > 1100){
+            // Desktop
+            navLinks.style.right = "0";
+            navItems.forEach(item => item.setAttribute('tabindex', '0'));
+            openBtn.style.display = 'none';
+          } else {
+            // Mobile
+           navLinks.style.right = "-200px";
+            navItems.forEach(item => item.setAttribute('tabindex', '-1'));
+           openBtn.style.display = 'block';
+         }
+        }
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+      </script>
+</body>
+</html>
