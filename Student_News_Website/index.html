@@ -9,14 +9,14 @@
     <header class="header">
     <nav aria-label="Main navigation">
   <div class="logo-wrapper">
-    <a href="home.html"><img class="logo" src="images/aurum-landscapes-logo.svg" alt="Home Page"></a>
+    <a href="index.html"><img class="logo" src="images/aurum-landscapes-logo.svg" alt="Home Page"></a>
   </div>
   <div class="nav-links" id="navLinks">
     <button class="menu-btn fa fa-times" onclick="hideMenu()" aria-label="Close navigation menu"></button>
     <ul>
-      <li><a href="about.html">EVENTS</a></li>
-      <li><a href="process.html">PEOPLE</a></li>
-      <li><a href="projects.html">TECHNOLOGY</a></li>
+      <li><a href="events.html">EVENTS</a></li>
+      <li><a href="people.html">PEOPLE</a></li>
+      <li><a href="technology.html">TECHNOLOGY</a></li>
     </ul>
   </div>
   <button class="fa fa-bars menu-btn" onclick="showMenu()" aria-label="Open navigation menu" aria-expanded="false"></button>
@@ -25,7 +25,7 @@
   <section class="carousel-container process-carousel">
   <div class="carousel-text-box">
     <p class="carousel-label">Today on</p>
-    <h1 class="carousel-heading">Edge Hill News</h1>
+    <h1 class="carousel-heading">Edge <br> Hill <br> News</h1>
   </div>
   <div class="container">
     <div class="wrapper">
@@ -131,5 +131,21 @@
         handleResize();
 
       </script>
+
+  <section class="poll-section">
+    <h2>Quick Poll</h2>
+    <div class="poll-container">
+      <label class="poll-option">
+        <input type="radio" name="poll" value="option1">
+        <span>Option 1</span>
+      </label>
+      <label class="poll-option">
+        <input type="radio" name="poll" value="option2">
+        <span>Option 2</span>
+      </label>
+    </div>
+    <button class="poll-submit">Submit Vote</button>
+  </section>
+
 </body>
 </html>

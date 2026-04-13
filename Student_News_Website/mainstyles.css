@@ -297,22 +297,34 @@ nav .fa {
 
 /* Change layout to wider carousel area */
 .process-carousel {
-  grid-template-columns: 1fr 2fr;  /* left text box | right carousel */
+  grid-template-columns: 1fr 2fr;
   position: relative;
 }
 
 .process-carousel .container {
-  opacity: 1; /* Make carousel fully visible (not faded) */
-  max-height: 70vh; /* Slightly taller than regular carousel */
+  opacity: 1;
+  max-height: 70vh;
+  grid-column: 1 / -1;
+  grid-row: 1;
 }
 
 /* Text box on left side of process carousel */
 .carousel-text-box {
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Vertically center the text */
-  padding: 2rem;
-  background-color: rgb(70, 70, 70);
+  justify-content: center;
+  padding: 2rem 4rem 2rem 2rem;
+  grid-column: 1;
+  grid-row: 1;
+  z-index: 2;
+  background: linear-gradient(
+    to right,
+    rgba(128, 128, 128, 1) 0%,
+    rgba(128, 128, 128, 1) 70%,
+    rgba(128, 128, 128, 0.85) 85%,
+    rgba(128, 128, 128, 0.7) 100%
+  );
+  pointer-events: none;
 }
 
 /* Small text label above main heading */
@@ -322,15 +334,164 @@ nav .fa {
   font-family: "Hind", sans-serif;
   padding: 0;
   margin-bottom: 0.5rem;
+  pointer-events: all;
 }
 
-/* Large heading in the carousel text box */
 .carousel-heading {
   font-size: 60px;
   text-align: left;
   padding: 0;
   color: #fff;
-  line-height: 1.1; /* Tighter spacing for large text */
+  line-height: 1.1;
+  pointer-events: all;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   EVENTS PAGE CAROUSEL — Custom styling for events page only
+   ═══════════════════════════════════════════════════════════════════ */
+
+.events-carousel .carousel-text-box {
+  grid-column: 1;
+  grid-row: 1;
+  height: 50%;
+  padding: 1rem 1.5rem;
+  background: rgba(128, 128, 128, 0.9);
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   ARTICLE BOXES — Side by side article cards with image and text
+   ═══════════════════════════════════════════════════════════════════ */
+
+.article-boxes-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 2rem 0;
+  margin: 2rem 0;
+}
+
+.article-box {
+  display: flex;
+  background-color: rgba(38, 53, 39, 0.6);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article-box:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.article-box img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-bottom: none;
+}
+
+.article-content {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.article-content h3 {
+  font-size: 18px;
+  color: #ffc831;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  padding: 0;
+}
+
+.article-content p {
+  font-size: 14px;
+  color: white;
+  text-align: left;
+  padding: 0;
+  line-height: 1.4;
+}
+
+/* Responsive article boxes */
+@media (max-width: 768px) {
+  .article-boxes-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .article-box img {
+    width: 150px;
+    height: 150px;
+  }
+
+  .article-content {
+    padding: 1rem;
+  }
+
+  .article-content h3 {
+    font-size: 16px;
+  }
+
+  .article-content p {
+    font-size: 13px;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   IMAGE GRID SECTION — Square image boxes with headings
+   ═══════════════════════════════════════════════════════════════════ */
+
+.image-grid-section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+  padding: 2rem 0;
+  margin: 2rem 0;
+}
+
+.image-box {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.image-box:hover {
+  transform: scale(1.05);
+}
+
+.image-box img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 8px;
+  border-bottom: none;
+  margin-bottom: 1rem;
+}
+
+.image-box h3 {
+  font-size: 16px;
+  color: #ffc831;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+
+/* Responsive image grid */
+@media (max-width: 1100px) {
+  .image-grid-section {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .image-grid-section {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════════
@@ -642,5 +803,94 @@ html {
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   POLL SECTION — Interactive poll for user engagement
+   ═══════════════════════════════════════════════════════════════════ */
+
+.poll-section {
+  background-color: rgba(38, 53, 39, 0.8);
+  padding: 3rem 2rem;
+  margin-top: 3rem;
+  text-align: center;
+  border-top: 2px solid #ffc831;
+  border-bottom: 2px solid #ffc831;
+}
+
+.poll-section h2 {
+  margin-bottom: 2rem;
+  color: #ffc831;
+}
+
+.poll-container {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.poll-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-size: 18px;
+  font-family: "Hind", sans-serif;
+  transition: color 0.3s ease;
+}
+
+.poll-option input[type="radio"] {
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  accent-color: #ffc831;
+}
+
+.poll-option:hover {
+  color: #ffc831;
+}
+
+.poll-option span {
+  user-select: none;
+}
+
+.poll-submit {
+  background-color: #ffc831;
+  color: #263527;
+  padding: 0.75rem 2rem;
+  font-size: 16px;
+  font-weight: 600;
+  font-family: "Hind", sans-serif;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.poll-submit:hover {
+  background-color: #e2b344;
+  transform: scale(1.05);
+}
+
+.poll-submit:active {
+  transform: scale(0.98);
+}
+
+/* Mobile responsiveness for poll */
+@media (max-width: 768px) {
+  .poll-section {
+    padding: 2rem 1rem;
+  }
+
+  .poll-container {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .poll-option {
+    justify-content: center;
   }
 }
