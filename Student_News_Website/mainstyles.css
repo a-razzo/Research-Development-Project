@@ -466,7 +466,6 @@ nav .fa {
   width: 100%;
   aspect-ratio: 1 / 1;
   object-fit: cover;
-  border-radius: 8px;
   border-bottom: none;
   margin-bottom: 1rem;
 }
@@ -892,5 +891,82 @@ html {
 
   .poll-option {
     justify-content: center;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════
+   FOOTER — Consistent footer with sitemap across all pages
+   ═══════════════════════════════════════════════════════════════════ */
+
+.site-footer {
+  background-color: #1a2620;
+  border-top: 1px solid #ffc831;
+  padding: 1.5rem 0;
+  margin-top: 3rem;
+  font-size: 12px;
+  font-family: "Hind", sans-serif;
+}
+
+.footer-content {
+  text-align: center;
+  color: #999;
+}
+
+.footer-sitemap {
+  margin-bottom: 1rem;
+}
+
+.footer-sitemap h4 {
+  font-size: 12px;
+  color: #ffc831;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 600;
+  padding: 0;
+}
+
+.footer-sitemap ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-sitemap ul li a {
+  color: #ccc;
+  text-decoration: none;
+  font-size: 12px;
+  transition: color 0.3s ease;
+}
+
+.footer-sitemap ul li a:hover {
+  color: #ffc831;
+}
+
+.site-footer p {
+  font-size: 11px;
+  color: #666;
+  padding: 0;
+  margin: 0;
+}
+
+/* Mobile responsiveness for footer */
+@media (max-width: 768px) {
+  .site-footer {
+    padding: 1rem;
+  }
+
+  .footer-sitemap ul {
+    gap: 1rem;
+  }
+
+  .footer-sitemap ul li a {
+    font-size: 11px;
+  }
+
+  .footer-sitemap h4 {
+    font-size: 11px;
   }
 }
