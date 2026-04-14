@@ -145,6 +145,11 @@
       </label>
     </div>
     <button class="poll-submit">Submit Vote</button>
+    <div id="poll-results" style="margin-top: 20px; display: none;">
+      <h3>Poll Results</h3>
+      <div id="results-container"></div>
+    </div>
+    <div id="poll-message" style="margin-top: 15px; font-size: 14px; text-align: center;"></div>
   </section>
 
   <footer class="site-footer">
@@ -161,6 +166,119 @@
       <p>&copy; 2026 Edge Hill News. All rights reserved.</p>
     </div>
   </footer>
+
+  <!-- Poll Backend Integration Script -->
+  <script>
+    // Configuration
+    const BACKEND_URL = 'http://localhost:5000'; // Change this if backend is on different host/port
+    const POLL_ID = 'main-poll';
+
+    // Poll functionality
+    const pollSubmitBtn = document.querySelector('.poll-submit');
+    const pollRadios = document.querySelectorAll('input[name="poll"]');
+    const resultsDiv = document.getElementById('poll-results');
+    const resultsContainer = document.getElementById('results-container');
+    const pollMessage = document.getElementById('poll-message');
+
+    // Load and display poll results on page load
+    window.addEventListener('load', () => {
+      loadPollResults();
+      // Refresh results every 5 seconds to show live updates
+      setInterval(loadPollResults, 5000);
+    });
+
+    // Fetch and display poll results
+    function loadPollResults() {
+      fetch(`${BACKEND_URL}/api/poll/${POLL_ID}`)
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to fetch results');
+          return response.json();
+        })
+        .then(data => {
+          displayResults(data);
+        })
+        .catch(error => {
+          console.log('Backend not available yet - results will load when backend starts');
+        });
+    }
+
+    // Display poll results with progress bars
+    function displayResults(data) {
+      if (!data.results || data.results.length === 0) {
+        resultsContainer.innerHTML = '<p style="color: #999;">No votes yet</p>';
+        return;
+      }
+
+      resultsDiv.style.display = 'block';
+      let html = `<p style="font-size: 12px; color: #666; margin-bottom: 10px;">Total votes: ${data.total}</p>`;
+      
+      data.results.forEach(result => {
+        const optionLabel = result.option === 'option1' ? 'Option 1' : 'Option 2';
+        html += `
+          <div style="margin-bottom: 15px;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
+              <span>${optionLabel}</span>
+              <span style="font-weight: bold;">${result.votes} votes (${result.percentage}%)</span>
+            </div>
+            <div style="background-color: #e0e0e0; border-radius: 4px; overflow: hidden; height: 20px;">
+              <div style="background-color: #007bff; height: 100%; width: ${result.percentage}%; transition: width 0.3s ease;"></div>
+            </div>
+          </div>
+        `;
+      });
+      
+      resultsContainer.innerHTML = html;
+    }
+
+    // Handle poll submission
+    pollSubmitBtn.addEventListener('click', () => {
+      const selectedOption = document.querySelector('input[name="poll"]:checked');
+      
+      if (!selectedOption) {
+        pollMessage.style.color = '#d32f2f';
+        pollMessage.textContent = 'Please select an option before voting';
+        return;
+      }
+
+      pollMessage.textContent = 'Submitting vote...';
+      pollMessage.style.color = '#666';
+
+      // Send vote to backend
+      fetch(`${BACKEND_URL}/api/poll/${POLL_ID}/vote`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          option: selectedOption.value
+        })
+      })
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to submit vote');
+          return response.json();
+        })
+        .then(data => {
+          pollMessage.style.color = '#4caf50';
+          pollMessage.textContent = '✓ Vote submitted successfully!';
+          
+          // Clear selection
+          document.querySelector('input[name="poll"]:checked').checked = false;
+          
+          // Reload results
+          loadPollResults();
+          
+          // Clear message after 3 seconds
+          setTimeout(() => {
+            pollMessage.textContent = '';
+          }, 3000);
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          pollMessage.style.color = '#d32f2f';
+          pollMessage.textContent = '✗ Error: Backend connection failed. Is the server running on ' + BACKEND_URL + '?';
+        });
+    });
+  </script>
 
 </body>
 </html>
