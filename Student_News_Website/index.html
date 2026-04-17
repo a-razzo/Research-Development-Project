@@ -1,284 +1,224 @@
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="mainstyles.css"/>
-    <title>Edge Hill News - Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="mainstyles.css">
+  <title>Scholar & Sky - Home</title>
 </head>
 <body>
-    <header class="header">
-    <nav aria-label="Main navigation">
-  <div class="logo-wrapper">
-    <a href="index.html"><img class="logo" src="images/aurum-landscapes-logo.svg" alt="Home Page"></a>
-  </div>
-  <div class="nav-links" id="navLinks">
-    <button class="menu-btn fa fa-times" onclick="hideMenu()" aria-label="Close navigation menu"></button>
-    <ul>
-      <li><a href="events.html">EVENTS</a></li>
-      <li><a href="people.html">PEOPLE</a></li>
-      <li><a href="technology.html">TECHNOLOGY</a></li>
-    </ul>
-  </div>
-  <button class="fa fa-bars menu-btn" onclick="showMenu()" aria-label="Open navigation menu" aria-expanded="false"></button>
-</nav>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="brand" href="index.html">EH News</a>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="events.html">Events</a>
+        <a href="people.html">People</a>
+        <a href="technology.html">Technology</a>
+      </nav>
+    </div>
   </header>
-  <section class="carousel-container process-carousel">
-  <div class="carousel-text-box">
-    <p class="carousel-label">Today on</p>
-    <h1 class="carousel-heading">Edge <br> Hill <br> News</h1>
-  </div>
-  <div class="container">
-    <div class="wrapper">
-      <img class="carousel-img" src="images/historic2.png" alt="#">
-      <img class="carousel-img" src="images/historic3.png" alt="#">
-      <img class="carousel-img" src="images/historic4.png" alt="#">
-      <img class="carousel-img" src="images/historic3.png" alt="#">
-    </div>
-  </div>
-</section>
 
-<section class="trending-carousel-section">
-  <h2>Trending Articles</h2>
-  <div class="trending-carousel">
-
-    <input type="radio" name="trending" id="t1" checked>
-    <input type="radio" name="trending" id="t2">
-    <input type="radio" name="trending" id="t3">
-    <input type="radio" name="trending" id="t4">
-    <input type="radio" name="trending" id="t5">
-
-    <div class="trending-track">
-      <div class="trending-slide">
-        <img src="images/historic2.png" alt="Article 1">
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <h1 class="hero-title">The <em>Future</em><br>of<br>Computation</h1>
+        <p class="hero-quote">"We are no longer designing chips; we are choreographing the flow of human thought into silicon structures."</p>
+        <p class="hero-summary">Exploring the boundaries of neural architecture, distributed logic, and the aesthetic of efficient computation.</p>
       </div>
-      <div class="trending-slide">
-        <img src="images/historic3.png" alt="Article 2">
+      <article class="hero-feature">
+        <div class="hero-carousel" id="heroCarousel" aria-label="Featured story carousel">
+          <div class="hero-carousel-track">
+            <img class="hero-slide" src="images/historic4.png" alt="Featured story portrait one">
+            <img class="hero-slide" src="images/historic3.png" alt="Featured story portrait two">
+            <img class="hero-slide" src="images/historic2.png" alt="Featured story portrait three">
+          </div>
+        </div>
+        <div class="hero-progress" aria-hidden="true">
+          <span class="hero-progress-bar" id="heroProgressBar"></span>
+        </div>
+        <div class="hero-meta">
+          <p class="meta-label">NOW LIVE</p>
+          <h2>Dr. Elena Vance</h2>
+          <p>On adaptive neural networks</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="trending-carousel-section">
+      <div class="section-heading trending-heading">
+        <h2>Trending Articles</h2>
       </div>
-      <div class="trending-slide">
-        <img src="images/historic4.png" alt="Article 3">
+      <div class="trending-carousel" aria-label="Trending articles carousel">
+        <button class="carousel-arrow left" type="button" aria-label="Previous articles">&#8249;</button>
+        <div class="carousel-window">
+          <div class="trending-track" id="trendingTrack">
+            <article class="trending-slide"><img src="images/historic2.png" alt="Trending story one"></article>
+            <article class="trending-slide"><img src="images/historic3.png" alt="Trending story two"></article>
+            <article class="trending-slide"><img src="images/historic4.png" alt="Trending story three"></article>
+            <article class="trending-slide"><img src="images/historic2.png" alt="Trending story four"></article>
+          </div>
+        </div>
+        <button class="carousel-arrow right" type="button" aria-label="Next articles">&#8250;</button>
       </div>
-      <div class="trending-slide">
-        <img src="images/historic3.png" alt="Article 4">
+    </section>
+
+    <section class="poll-band">
+      <h2>Weekly Quick Poll</h2>
+      <form class="poll-form">
+        <label><input type="radio" name="poll" value="quantum" required> Quantum Supremacy</label>
+        <label><input type="radio" name="poll" value="neural"> Neural Ethics</label>
+        <button type="submit">Submit Vote</button>
+      </form>
+    </section>
+
+    <section class="content-block">
+      <div class="section-heading between">
+        <h2>Expert Perspectives</h2>
+        <a href="technology.html">View Archive &#8250;</a>
       </div>
-      <div class="trending-slide">
-        <img src="images/historic2.png" alt="Article 5">
+      <div class="article-grid three-up">
+        <article class="story-card">
+          <img src="images/historic2.png" alt="Article about quantum systems">
+          <p class="kicker">CURRENT OPERATIONS</p>
+          <h3>Beyond the Qubit: A New Language for Reality</h3>
+          <p>Julian Thorne discusses topological implications of non-deterministic programming.</p>
+          <a href="technology.html">Dive In to Interview</a>
+        </article>
+        <article class="story-card">
+          <img src="images/historic3.png" alt="Article about synthetic intelligence">
+          <p class="kicker">SPECIAL INTELLIGENCE</p>
+          <h3>The Ghost in the Code: Ethics of Generative Models</h3>
+          <p>An honest view on why the next breakthrough in AI must be technical and sociological.</p>
+          <a href="people.html">Read Full Feature</a>
+        </article>
+        <article class="story-card">
+          <img src="images/historic4.png" alt="Article about cybersecurity">
+          <p class="kicker">CYBERSECURITY</p>
+          <h3>The Digital Fortress is an Illusion</h3>
+          <p>A deep dive into emergent architectures with the power of modern encryption patterns.</p>
+          <a href="events.html">View Case Supplement</a>
+        </article>
       </div>
-      <div class="trending-slide">
-        <img src="images/historic3.png" alt="Article 6">
-      </div>
-      <div class="trending-slide">
-        <img src="images/historic4.png" alt="Article 7">
-      </div>
-      <div class="trending-slide">
-        <img src="images/historic3.png" alt="Article 8">
-      </div>
-    </div>
+    </section>
 
-    <div class="trending-arrows">
-      <label class="arrow arrow-prev t1-prev" for="t5">&#8592;</label>
-      <label class="arrow arrow-prev t2-prev" for="t1">&#8592;</label>
-      <label class="arrow arrow-prev t3-prev" for="t2">&#8592;</label>
-      <label class="arrow arrow-prev t4-prev" for="t3">&#8592;</label>
-      <label class="arrow arrow-prev t5-prev" for="t4">&#8592;</label>
-
-      <label class="arrow arrow-next t1-next" for="t2">&#8594;</label>
-      <label class="arrow arrow-next t2-next" for="t3">&#8594;</label>
-      <label class="arrow arrow-next t3-next" for="t4">&#8594;</label>
-      <label class="arrow arrow-next t4-next" for="t5">&#8594;</label>
-      <label class="arrow arrow-next t5-next" for="t1">&#8594;</label>
-    </div>
-
-  </div>
-</section>
-
-  <!------JavaScript which toggles menu (note: Claude AI was used to assist in the keyboard navigation implementation of the javascript.)------>
-      <script>
-
-        var navLinks = document.getElementById("navLinks");
-        var openBtn = document.querySelector('[aria-label="Open navigation menu"]');
-        var closeBtn = document.querySelector('[aria-label="Close navigation menu"]');
-        var navItems = navLinks.querySelectorAll('a, button');
-
-        function showMenu(){
-          navLinks.style.right = "0";
-          openBtn.setAttribute('aria-expanded', 'true');
-          navItems.forEach(item => item.setAttribute('tabindex', '0'));
-          closeBtn.focus();
-        }
-
-        function hideMenu(){
-          navLinks.style.right = "-200px";
-          openBtn.setAttribute('aria-expanded', 'false');
-          navItems.forEach(item => item.setAttribute('tabindex', '-1'));
-          openBtn.focus();
-        }
-
-        function handleResize(){
-          if(window.innerWidth > 1100){
-            // Desktop
-            navLinks.style.right = "0";
-            navItems.forEach(item => item.setAttribute('tabindex', '0'));
-            openBtn.style.display = 'none';
-          } else {
-            // Mobile
-           navLinks.style.right = "-200px";
-            navItems.forEach(item => item.setAttribute('tabindex', '-1'));
-           openBtn.style.display = 'block';
-         }
-        }
-
-        window.addEventListener('resize', handleResize);
-        handleResize();
-
-      </script>
-
-  <section class="poll-section">
-    <h2>Quick Poll</h2>
-    <div class="poll-container">
-      <label class="poll-option">
-        <input type="radio" name="poll" value="option1">
-        <span>Option 1</span>
-      </label>
-      <label class="poll-option">
-        <input type="radio" name="poll" value="option2">
-        <span>Option 2</span>
-      </label>
-    </div>
-    <button class="poll-submit">Submit Vote</button>
-    <div id="poll-results" style="margin-top: 20px; display: none;">
-      <h3>Poll Results</h3>
-      <div id="results-container"></div>
-    </div>
-    <div id="poll-message" style="margin-top: 15px; font-size: 14px; text-align: center;"></div>
-  </section>
+  </main>
 
   <footer class="site-footer">
-    <div class="footer-content">
-      <div class="footer-sitemap">
-        <h4>Sitemap</h4>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="events.html">Events</a></li>
-          <li><a href="people.html">People</a></li>
-          <li><a href="technology.html">Technology</a></li>
-        </ul>
-      </div>
-      <p>&copy; 2026 Edge Hill News. All rights reserved.</p>
+    <div class="footer-inner">
+      <p class="footer-brand">Scholar & Sky - The Digital Curator of Computer Science</p>
+      <nav aria-label="Footer">
+        <a href="index.html">Policy</a>
+        <a href="technology.html">Archives</a>
+        <a href="people.html">Contact</a>
+        <a href="events.html">Library</a>
+      </nav>
+      <p class="copyright">&copy; 2026 Scholar & Sky. An intellectual report shaped by the committed scholar.</p>
     </div>
   </footer>
 
-  <!-- Poll Backend Integration Script -->
   <script>
-    // Configuration
-    const BACKEND_URL = 'http://localhost:5000'; // Change this if backend is on different host/port
-    const POLL_ID = 'main-poll';
-
-    // Poll functionality
-    const pollSubmitBtn = document.querySelector('.poll-submit');
-    const pollRadios = document.querySelectorAll('input[name="poll"]');
-    const resultsDiv = document.getElementById('poll-results');
-    const resultsContainer = document.getElementById('results-container');
-    const pollMessage = document.getElementById('poll-message');
-
-    // Load and display poll results on page load
-    window.addEventListener('load', () => {
-      loadPollResults();
-      // Refresh results every 5 seconds to show live updates
-      setInterval(loadPollResults, 5000);
-    });
-
-    // Fetch and display poll results
-    function loadPollResults() {
-      fetch(`${BACKEND_URL}/api/poll/${POLL_ID}`)
-        .then(response => {
-          if (!response.ok) throw new Error('Failed to fetch results');
-          return response.json();
-        })
-        .then(data => {
-          displayResults(data);
-        })
-        .catch(error => {
-          console.log('Backend not available yet - results will load when backend starts');
-        });
-    }
-
-    // Display poll results with progress bars
-    function displayResults(data) {
-      if (!data.results || data.results.length === 0) {
-        resultsContainer.innerHTML = '<p style="color: #999;">No votes yet</p>';
+    (function () {
+      const trendingHeading = document.querySelector('.trending-heading');
+      if (!trendingHeading || !('IntersectionObserver' in window)) {
         return;
       }
 
-      resultsDiv.style.display = 'block';
-      let html = `<p style="font-size: 12px; color: #666; margin-bottom: 10px;">Total votes: ${data.total}</p>`;
-      
-      data.results.forEach(result => {
-        const optionLabel = result.option === 'option1' ? 'Option 1' : 'Option 2';
-        html += `
-          <div style="margin-bottom: 15px;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 5px;">
-              <span>${optionLabel}</span>
-              <span style="font-weight: bold;">${result.votes} votes (${result.percentage}%)</span>
-            </div>
-            <div style="background-color: #e0e0e0; border-radius: 4px; overflow: hidden; height: 20px;">
-              <div style="background-color: #007bff; height: 100%; width: ${result.percentage}%; transition: width 0.3s ease;"></div>
-            </div>
-          </div>
-        `;
+      const observer = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            trendingHeading.classList.remove('is-visible');
+            void trendingHeading.offsetWidth;
+            trendingHeading.classList.add('is-visible');
+          } else {
+            trendingHeading.classList.remove('is-visible');
+          }
+        });
+      }, { threshold: 0.35 });
+
+      observer.observe(trendingHeading);
+    })();
+
+    (function () {
+      const heroCarousel = document.getElementById('heroCarousel');
+      const heroProgressBar = document.getElementById('heroProgressBar');
+
+      if (!heroCarousel || !heroProgressBar) {
+        return;
+      }
+
+      const heroTrack = heroCarousel.querySelector('.hero-carousel-track');
+      const heroSlides = Array.from(heroTrack.children);
+      const slideDuration = 5000;
+      let heroIndex = 0;
+
+      if (!heroSlides.length) {
+        return;
+      }
+
+      function setHeroSlide(nextIndex) {
+        heroIndex = (nextIndex + heroSlides.length) % heroSlides.length;
+        heroTrack.style.transform = 'translateX(-' + (heroIndex * 100) + '%)';
+
+        heroProgressBar.style.transition = 'none';
+        heroProgressBar.style.width = '0%';
+        void heroProgressBar.offsetWidth;
+        heroProgressBar.style.transition = 'width ' + slideDuration + 'ms linear';
+        heroProgressBar.style.width = '100%';
+      }
+
+      setHeroSlide(0);
+      setInterval(function () {
+        setHeroSlide(heroIndex + 1);
+      }, slideDuration);
+    })();
+
+    (function () {
+      const carousel = document.querySelector('.trending-carousel');
+      const track = document.getElementById('trendingTrack');
+      const prevBtn = carousel.querySelector('.carousel-arrow.left');
+      const nextBtn = carousel.querySelector('.carousel-arrow.right');
+      const slides = Array.from(track.children);
+      let index = 0;
+
+      if (!slides.length) {
+        return;
+      }
+
+      function visibleCount() {
+        if (window.innerWidth <= 640) return 1;
+        return 2;
+      }
+
+      function updateCarousel() {
+        const cardWidth = slides[0].getBoundingClientRect().width;
+        const computed = window.getComputedStyle(track);
+        const gap = parseFloat(computed.columnGap || computed.gap || '0');
+        track.style.transform = 'translateX(' + (-index * (cardWidth + gap)) + 'px)';
+
+        const maxIndex = Math.max(0, slides.length - visibleCount());
+        prevBtn.disabled = index <= 0;
+        nextBtn.disabled = index >= maxIndex;
+      }
+
+      prevBtn.addEventListener('click', function () {
+        index = Math.max(0, index - 1);
+        updateCarousel();
       });
-      
-      resultsContainer.innerHTML = html;
-    }
 
-    // Handle poll submission
-    pollSubmitBtn.addEventListener('click', () => {
-      const selectedOption = document.querySelector('input[name="poll"]:checked');
-      
-      if (!selectedOption) {
-        pollMessage.style.color = '#d32f2f';
-        pollMessage.textContent = 'Please select an option before voting';
-        return;
-      }
+      nextBtn.addEventListener('click', function () {
+        const maxIndex = Math.max(0, slides.length - visibleCount());
+        index = Math.min(maxIndex, index + 1);
+        updateCarousel();
+      });
 
-      pollMessage.textContent = 'Submitting vote...';
-      pollMessage.style.color = '#666';
+      window.addEventListener('resize', function () {
+        const maxIndex = Math.max(0, slides.length - visibleCount());
+        if (index > maxIndex) index = maxIndex;
+        updateCarousel();
+      });
 
-      // Send vote to backend
-      fetch(`${BACKEND_URL}/api/poll/${POLL_ID}/vote`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          option: selectedOption.value
-        })
-      })
-        .then(response => {
-          if (!response.ok) throw new Error('Failed to submit vote');
-          return response.json();
-        })
-        .then(data => {
-          pollMessage.style.color = '#4caf50';
-          pollMessage.textContent = '✓ Vote submitted successfully!';
-          
-          // Clear selection
-          document.querySelector('input[name="poll"]:checked').checked = false;
-          
-          // Reload results
-          loadPollResults();
-          
-          // Clear message after 3 seconds
-          setTimeout(() => {
-            pollMessage.textContent = '';
-          }, 3000);
-        })
-        .catch(error => {
-          console.error('Error:', error);
-          pollMessage.style.color = '#d32f2f';
-          pollMessage.textContent = '✗ Error: Backend connection failed. Is the server running on ' + BACKEND_URL + '?';
-        });
-    });
+      updateCarousel();
+    })();
   </script>
-
 </body>
 </html>

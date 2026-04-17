@@ -1,803 +1,231 @@
-/* ═══════════════════════════════════════════════════════════════════
-   UNIVERSAL STYLINGS — Base styles applied to everything on the page
-   ═══════════════════════════════════════════════════════════════════ */
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Manrope:wght@400;500;600;700&display=swap');
 
-/* Reset all default margins and padding to start with a clean slate */
-*{
+:root {
+  --paper: #f4f6f8;
+  --paper-soft: #edf1f4;
+  --block-tint: #dfe6ea;
+  --ink: #141a22;
+  --ink-soft: #5e6772;
+  --line: #d7dde2;
+  --accent: #ff4e36;
+  --accent-soft: #ffc5bb;
+  --steel: #3d6f94;
+  --card-shadow: 0 18px 30px rgba(20, 26, 34, 0.06);
+  --radius: 18px;
+}
+
+* {
   margin: 0;
   padding: 0;
-  box-sizing: border-box; /* Make padding & borders count toward element width */
-  font-family: "Gilda Display", serif;
+  box-sizing: border-box;
 }
 
-/* Give everything a golden outline when focused (keyboard navigation) */
-*:focus {
-  outline: 2px solid #ffc831;
-  outline-offset: 4px;
-  z-index: 50;
-}
-
-/* Hide focus outlines for mouse users (only show for keyboard) */
-*:focus:not(:focus-visible) {
-  outline: none;
-}
-
-/* Dark green background with white text as our base color scheme */
-body{
-  background-color: #263527;
-  color: white;
-  overflow-x: hidden; /* Prevent horizontal scrolling on mobile */
-  padding: 0 10%;
-  padding-top: 80px; /* Leave space for fixed navigation bar at top */
-}
-
-/* Add gold accent line beneath images for visual interest */
-img{
-  border-bottom: solid 6px #ffc831;
-}
-
-/* Center and space out all headings */
-h1, h2{
-  text-align: center;
-  padding: 1em 0;
-  color: #fff;
-}
-
-h1{
-  font-size: 60px;
-}
-
-h2{
-  font-size: 45px;
-}
-
-/* Make paragraphs easy to read with good line spacing */
-p{
-  font-size: 18px;
-  font-family: "Hind", sans-serif;
-  line-height: 1.5; /* Space out lines so text is less cramped */
-  padding: 0 1em;
-}
-
-/* Apply gold color to text marked with this class */
-.gold{
-  font-family: "Hind", sans-serif;
-  color: #ffc831;
-}
-
-/* All links are white by default */
-a{
-  color: white;
-}
-
-input{
-  padding: 1em 0;
-}
-
-/* Tagline/slogan styling — bold and centered */
-.slogan{
-  color: #E2C67B;
-  padding: 80px 10px;
-  font-weight: 600;
-  text-align: center;
-  font-size: 30px;
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   NAVIGATION BAR — The sleek header that stays at the top
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* Main header container - fixed at top with modern styling */
-.header {
-  height: auto; /* Let content determine height instead of fixed height */
-  width: 100%;
-  /* Gradient background for modern aesthetic (blends two shades of dark green) */
-  background: linear-gradient(135deg, rgba(21, 39, 25, 0.98) 0%, rgba(39, 50, 40, 0.98) 100%);
-  backdrop-filter: blur(10px); /* Frosted glass effect - adds sophistication */
-  position: fixed;
-  top: 0;
-  z-index: 100; /* Stay above all other content */
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
-  border-bottom: 1px solid rgba(255, 200, 49, 0.1); /* Hint of gold line */
-  transition: all 0.3s ease; /* Smooth any changes (colors, shadows, etc) */
-}
-
-/* Flex layout keeps logo left, nav links center/right */
-nav {
-  display: flex;
-  padding: 0.8rem 2rem;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
-  max-width: 1400px; /* Don't let content stretch too wide */
-  margin: 0 auto;
-  width: 100%;
-  gap: 2rem; /* Space between logo and nav items */
-}
-
-/* Logo container - won't shrink even if nav items are long */
-.logo-wrapper {
-  flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  height: auto;
-}
-
-/* Logo image styling with hover effect */
-.logo {
-  max-height: 70px;
-  width: auto;
-  border: none;
-  transition: transform 0.3s ease; /* Smooth scale-up on hover */
-}
-
-/* Make logo slightly bigger when hovering over it */
-.logo-wrapper:hover .logo {
-  transform: scale(1.05);
-}
-
-nav img {
-  width: auto;
-  filter: invert(100%); /* Turn dark images to light for visibility */
-}
-
-/* Navigation links container */
-.nav-links {
-  display: flex;
-  align-items: center;
-  flex: 1; /* Take remaining space */
-  text-align: right;
-  gap: 1rem;
-}
-
-/* List of actual nav links */
-.nav-links ul {
-  display: flex;
-  gap: 0.5rem;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-links ul li {
-  list-style: none;
-  padding: 0.5rem 0;
-  position: relative;
-}
-
-/* Individual nav link styling */
-.nav-links ul li a {
-  color: #fff;
-  text-decoration: none;
-  font-size: 16px;
-  font-weight: 500;
-  padding: 0.75rem 1.25rem;
-  border-radius: 6px; /* Subtle rounded corners for modern look */
-  transition: all 0.3s ease; /* Smooth color/background changes */
-  display: inline-block;
-  position: relative; /* Needed for animated underline */
-}
-
-/* Animated underline that extends on hover - creates elegant effect */
-.nav-links ul li a::before {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 1.25rem;
-  width: 0; /* Starts at 0 width */
-  height: 2px;
-  background: linear-gradient(90deg, #ffc831, #e2b344); /* Golden gradient line */
-  transition: width 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth easing for premium feel */
-}
-
-/* Expand underline and change color on hover */
-.nav-links ul li a:hover::before {
-  width: calc(100% - 2.5rem); /* Stretch to fill link width */
-}
-
-.nav-links ul li a:hover {
-  color: #ffc831; /* Turn gold */
-  background-color: rgba(255, 200, 49, 0.08); /* Subtle gold background */
-}
-
-/* Keep active link highlighted */
-.nav-links ul li a.active {
-  color: #ffc831;
-  background-color: rgba(255, 200, 49, 0.12);
-}
-
-.nav-links ul li a.active::before {
-  width: calc(100% - 2.5rem); /* Show underline on active link */
-}
-
-.nav-links ul li a:active {
-  color: #ffc831;
-}
-
-nav .fa {
-  display: none; /* Hidden on desktop, shown on mobile */
-}
-
-/* Hamburger menu button styling */
-.menu-btn {
-  background: none;
-  border: none;
-  color: #fff;
-  font-size: 28px;
-  cursor: pointer;
-  padding: 0.5rem;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-}
-
-.menu-btn:hover {
-  background-color: rgba(255, 200, 49, 0.1);
-  color: #ffc831;
-}
-
-.menu-btn:focus {
-  outline: 2px solid #ffc831;
-  outline-offset: 2px;
-}
-
-.page-intro {
-  padding: 1em 2em;
-  justify-self: center;
-  color: #E2C67B;
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   CAROUSEL CONTAINER — Automatic image slideshow that cycles through photos
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* Main carousel wrapper - two column layout (image on left, text on right) */
-.carousel-container {
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1.5fr 3fr; /* Left column narrower for images */
-  gap: 1rem;
-  margin: 0 auto;
-  background-color: rgb(70, 70, 70);
-}
-
-/* Container that holds the sliding images */
-.container {
-  width: 100%;
-  overflow: hidden; /* Hide images that slide off screen */
-  opacity: 0.5; /* Make it semi-transparent by default */
-  max-height: 60vh; /* Limit height to 60% of viewport */
-}
-
-/* Flex wrapper holds all images side by side */
-.wrapper {
-  width: 100%;
-  display: flex;
-  animation: slide 18s infinite; /* Cycle through images every 18 seconds */
-}
-
-/* Animation that smoothly slides images left */
-@keyframes slide {
-  0%,  25%  { transform: translateX(0); }      /* Show first image */
-  30%, 50%  { transform: translateX(-100%); }  /* Slide to second image */
-  55%, 75%  { transform: translateX(-200%); }  /* Slide to third image */
-  80%, 100% { transform: translateX(-300%); }  /* Slide to fourth image */
-}
-
-/* Each image in the carousel */
-.carousel-img {
-  width: 100%;
-  flex-shrink: 0;
-  min-width: 100%;
-  object-fit: cover; /* Fill space while maintaining aspect ratio */
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   PROCESS PAGE CAROUSEL — Full width carousel with large feature images
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* Change layout to wider carousel area */
-.process-carousel {
-  grid-template-columns: 1fr 2fr;
-  position: relative;
-}
-
-.process-carousel .container {
-  opacity: 1;
-  max-height: 70vh;
-  grid-column: 1 / -1;
-  grid-row: 1;
-}
-
-/* Text box on left side of process carousel */
-.carousel-text-box {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 2rem 4rem 2rem 2rem;
-  grid-column: 1;
-  grid-row: 1;
-  z-index: 2;
-  background: linear-gradient(
-    to right,
-    rgba(128, 128, 128, 1) 0%,
-    rgba(128, 128, 128, 1) 70%,
-    rgba(128, 128, 128, 0.85) 85%,
-    rgba(128, 128, 128, 0.7) 100%
-  );
-  pointer-events: none;
-}
-
-/* Small text label above main heading */
-.carousel-label {
-  font-size: 16px;
-  color: #E2C67B;
-  font-family: "Hind", sans-serif;
-  padding: 0;
-  margin-bottom: 0.5rem;
-  pointer-events: all;
-}
-
-.carousel-heading {
-  font-size: 60px;
-  text-align: left;
-  padding: 0;
-  color: #fff;
-  line-height: 1.1;
-  pointer-events: all;
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   EVENTS PAGE CAROUSEL — Custom styling for events page only
-   ═══════════════════════════════════════════════════════════════════ */
-
-.events-carousel .carousel-text-box {
-  grid-column: 1;
-  grid-row: 1;
-  height: 50%;
-  padding: 1rem 1.5rem;
-  background: rgba(128, 128, 128, 0.9);
-  justify-content: flex-start;
-  align-items: flex-start;
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   ARTICLE BOXES — Side by side article cards with image and text
-   ═══════════════════════════════════════════════════════════════════ */
-
-.article-boxes-section {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 2rem 0;
-  margin: 2rem 0;
-}
-
-.article-box {
-  display: flex;
-  background-color: rgba(38, 53, 39, 0.6);
-  border-radius: 8px;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.article-box:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
-}
-
-.article-box img {
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  flex-shrink: 0;
-  border-bottom: none;
-}
-
-.article-content {
-  padding: 1.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.article-content h3 {
-  font-size: 18px;
-  color: #ffc831;
-  margin-bottom: 0.5rem;
-  text-align: left;
-  padding: 0;
-}
-
-.article-content p {
-  font-size: 14px;
-  color: white;
-  text-align: left;
-  padding: 0;
-  line-height: 1.4;
-}
-
-/* Responsive article boxes */
-@media (max-width: 768px) {
-  .article-boxes-section {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .article-box img {
-    width: 150px;
-    height: 150px;
-  }
-
-  .article-content {
-    padding: 1rem;
-  }
-
-  .article-content h3 {
-    font-size: 16px;
-  }
-
-  .article-content p {
-    font-size: 13px;
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   IMAGE GRID SECTION — Square image boxes with headings
-   ═══════════════════════════════════════════════════════════════════ */
-
-.image-grid-section {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  padding: 2rem 0;
-  margin: 2rem 0;
-}
-
-.image-box {
-  text-align: center;
-  transition: transform 0.3s ease;
-}
-
-.image-box:hover {
-  transform: scale(1.05);
-}
-
-.image-box img {
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  object-fit: cover;
-  border-bottom: none;
-  margin-bottom: 1rem;
-}
-
-.image-box h3 {
-  font-size: 16px;
-  color: #ffc831;
-  text-align: center;
-  padding: 0;
-  margin: 0;
-}
-
-/* Responsive image grid */
-@media (max-width: 1100px) {
-  .image-grid-section {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .image-grid-section {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   TRENDING CAROUSEL — Shows trending stories with left/right navigation arrows
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* Section wrapper for trending carousel */
-.trending-carousel-section {
-  padding: 2rem 0;
-  background-color: #263527;
-}
-
-.trending-carousel-section h2 {
-  margin-bottom: 1rem;
-}
-
-/* Main carousel container */
-.trending-carousel {
-  position: relative;
-  width: 90%;
-  margin: 0 auto;
-  overflow: hidden; /* Hide images that scroll off screen */
-}
-
-/* Hide radio buttons - they're used for JS but we don't want to see them */
-.trending-carousel input[type="radio"] {
-  display: none;
-}
-
-/* TRACK — The invisible belt that holds all slides and moves smoothly */
-.trending-track {
-  display: flex;
-  transition: transform 0.5s ease; /* Smooth sliding animation */
-  width: calc(100% / 4 * 8); /* Calculate width for 8 slides visible at once */
-}
-
-/* Individual slide container */
-.trending-slide {
-  width: calc(100% / 8); /* Each slide takes up 1/8 of the track */
-  flex-shrink: 0;
-  padding: 0 0.5rem;
-}
-
-.trending-slide img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover; /* Fill space without stretching image */
-  display: block;
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   TRACK POSITIONING — Controls which images are visible (done with CSS)
-   When you click a radio button, the track shifts to show different slides
-   ═══════════════════════════════════════════════════════════════════ */
-
-#t1:checked ~ .trending-track { transform: translateX(0%); }
-#t2:checked ~ .trending-track { transform: translateX(-12.5%); }
-#t3:checked ~ .trending-track { transform: translateX(-25%); }
-#t4:checked ~ .trending-track { transform: translateX(-37.5%); }
-#t5:checked ~ .trending-track { transform: translateX(-50%); }
-
-/* ═══════════════════════════════════════════════════════════════════
-   NAVIGATION ARROWS — Left/right buttons to scroll through slides
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* Container positioned over the carousel for arrow buttons */
-.trending-arrows {
-  position: absolute;
-  top: 50%;
-  width: 100%;
-  transform: translateY(-50%); /* Center vertically */
-  pointer-events: none; /* Don't block clicks on carousel */
-}
-
-/* Individual arrow button styling */
-.arrow {
-  position: absolute;
-  display: none; /* Only show relevant arrows for current slide */
-  width: 50px;
-  height: 50px;
-  background-color: rgba(38, 53, 39, 0.85); /* Semi-transparent dark green */
-  border: 2px solid #ffc831;
-  color: #ffc831;
-  font-size: 22px;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  pointer-events: all; /* Make clickable despite parent pointer-events:none */
-  transition: background-color 0.3s ease, color 0.3s ease;
-  z-index: 10;
-}
-
-.arrow:hover {
-  background-color: #ffc831; /* Turn golden on hover */
-  color: #263527;
-}
-
-.arrow-prev { left: -1rem; }   /* Previous button on left */
-.arrow-next { right: -1rem; }  /* Next button on right */
-
-/* Show the correct arrows based on which slide is active */
-#t1:checked ~ .trending-arrows .t1-prev { display: flex; }
-#t1:checked ~ .trending-arrows .t1-next { display: flex; }
-
-#t2:checked ~ .trending-arrows .t2-prev { display: flex; }
-#t2:checked ~ .trending-arrows .t2-next { display: flex; }
-
-#t3:checked ~ .trending-arrows .t3-prev { display: flex; }
-#t3:checked ~ .trending-arrows .t3-next { display: flex; }
-
-#t4:checked ~ .trending-arrows .t4-prev { display: flex; }
-#t4:checked ~ .trending-arrows .t4-next { display: flex; }
-
-#t5:checked ~ .trending-arrows .t5-prev { display: flex; }
-#t5:checked ~ .trending-arrows .t5-next { display: flex; }
-
-/* Adjust carousel on tablet screens */
-@media (max-width: 1100px) {
-  .trending-track {
-    width: calc(100% / 2 * 8);
-  }
-
-  .trending-slide {
-    width: calc(100% / 8);
-  }
-
-  #t1:checked ~ .trending-track { transform: translateX(0%); }
-  #t2:checked ~ .trending-track { transform: translateX(-12.5%); }
-  #t3:checked ~ .trending-track { transform: translateX(-25%); }
-  #t4:checked ~ .trending-track { transform: translateX(-37.5%); }
-  #t5:checked ~ .trending-track { transform: translateX(-50%); }
-}
-
-/* Adjust carousel on mobile screens */
-@media (max-width: 700px) {
-  .trending-track {
-    width: calc(100% * 8);
-  }
-
-  .trending-slide {
-    width: calc(100% / 8);
-  }
-
-  .trending-slide img {
-    height: 200px; /* Smaller images on mobile */
-  }
-
-  #t1:checked ~ .trending-track { transform: translateX(0%); }
-  #t2:checked ~ .trending-track { transform: translateX(-12.5%); }
-  #t3:checked ~ .trending-track { transform: translateX(-25%); }
-  #t4:checked ~ .trending-track { transform: translateX(-37.5%); }
-  #t5:checked ~ .trending-track { transform: translateX(-50%); }
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   RESPONSIVE DESIGN — Adapt layout for tablets and phones
-   Make sure everything looks great at every screen size!
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* TABLET SCREENS (1100px and below) */
-@media (max-width: 1100px) {
-  nav {
-    padding: 0.8rem 1.5rem;
-    gap: 1rem;
-  }
-
-  .nav-links ul li a {
-    padding: 0.5rem 1rem;
-    font-size: 15px; /* Slightly smaller text */
-  }
-
-  .nav-links ul li a::before {
-    left: 1rem; /* Adjust position of underline */
-  }
-
-  .nav-links ul li a:hover::before {
-    width: calc(100% - 2rem);
-  }
-}
-
-/* TABLET & SMALL LAPTOP (768px and below) — Switch to hamburger menu */
-@media (max-width: 768px) {
-  body {
-    padding-top: 60px; /* Shorter header on mobile */
-  }
-
-  nav {
-    padding: 0.8rem 1rem;
-    gap: 0.5rem;
-  }
-
-  .logo {
-    max-height: 60px;
-  }
-
-  /* Move nav menu off-screen to the right, slides in on demand */
-  .nav-links {
-    position: fixed;
-    right: -250px; /* Hidden off-screen by default */
-    top: 60px;
-    left: auto;
-    width: 250px;
-    height: calc(100vh - 60px);
-    background: linear-gradient(135deg, rgba(21, 39, 25, 0.99) 0%, rgba(39, 50, 40, 0.99) 100%);
-    flex-direction: column; /* Stack items vertically */
-    text-align: left;
-    padding: 2rem 0;
-    gap: 0;
-    border-left: 1px solid rgba(255, 200, 49, 0.1);
-    overflow-y: auto;
-    transition: right 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth slide animation */
-    box-shadow: -8px 0 32px rgba(0, 0, 0, 0.3);
-  }
-
-  .nav-links ul {
-    flex-direction: column;
-    width: 100%;
-    gap: 0;
-  }
-
-  .nav-links ul li {
-    width: 100%;
-    padding: 0;
-  }
-
-  .nav-links ul li a {
-    width: 100%;
-    padding: 1rem 1.5rem;
-    border-radius: 0; /* No rounded corners on mobile nav */
-    font-size: 16px;
-  }
-
-  /* Hide the animated underline on mobile */
-  .nav-links ul li a::before {
-    display: none;
-  }
-
-  .nav-links ul li a:hover {
-    background-color: rgba(255, 200, 49, 0.15);
-    padding-left: 2rem; /* Indent on hover for feedback */
-  }
-
-  /* Active link styling — gold background with left border */
-  .nav-links ul li a.active {
-    background-color: rgba(255, 200, 49, 0.15);
-    border-left: 3px solid #ffc831;
-    padding-left: calc(1.5rem - 3px); /* Adjust for border width */
-  }
-
-  /* Show hamburger menu icon on mobile */
-  nav .fa {
-    display: block;
-  }
-
-  .menu-btn.fa-times {
-    align-self: flex-end;
-    margin-right: 1.5rem;
-    margin-top: 1rem;
-    margin-bottom: 1rem;
-  }
-
-  .menu-btn.fa-bars {
-    margin-left: auto;
-  }
-}
-
-/* SMALL PHONES (480px and below) */
-@media (max-width: 480px) {
-  nav {
-    padding: 0.6rem 1rem; /* Tighter padding on tiny screens */
-  }
-
-  .logo {
-    max-height: 50px; /* Smaller logo */
-  }
-
-  /* Mobile menu takes up full width on small phones */
-  .nav-links {
-    width: 100%;
-    right: -100%;
-    top: 55px;
-  }
-
-  .nav-links ul li a {
-    padding: 0.75rem 1rem;
-    font-size: 15px;
-  }
-
-  .menu-btn {
-    font-size: 24px; /* Smaller menu icons */
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   GLOBAL ANIMATIONS & EFFECTS
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* Make page scrolling smooth instead of jumpy */
 html {
   scroll-behavior: smooth;
 }
 
-/* Fade-in animation for menu items (for future use) */
-@keyframes slideInMenu {
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Manrope", sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.site-header {
+  border-bottom: 1px solid var(--line);
+  background: rgba(244, 246, 248, 0.92);
+  backdrop-filter: blur(5px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-inner {
+  width: min(1240px, 92vw);
+  margin: 0 auto;
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.brand {
+  font-family: "Manrope", sans-serif;
+  font-size: 1.7rem;
+  font-weight: 800;
+  color: #000;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 1.6rem;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+}
+
+.top-nav a {
+  transition: color 0.2s ease;
+}
+
+.top-nav a:hover,
+.top-nav a.active {
+  color: var(--ink);
+}
+
+main > section {
+  width: min(1240px, 92vw);
+  margin: 0 auto;
+}
+
+.hero {
+  padding: 2rem 0;
+  min-height: calc(100svh - 72px);
+  display: grid;
+  grid-template-columns: 1.2fr 0.85fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.hero-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(3rem, 9vw, 6.2rem);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.9;
+  margin: 1rem 0 1.2rem;
+}
+
+.hero-title em {
+  font-style: italic;
+}
+
+.hero-quote {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  color: #8a6a48;
+  font-size: clamp(1.1rem, 2.2vw, 1.95rem);
+  line-height: 1.1;
+  max-width: 34ch;
+}
+
+.hero-summary {
+  margin-top: 1rem;
+  color: var(--ink-soft);
+  max-width: 55ch;
+  font-size: 0.95rem;
+}
+
+.hero-feature {
+  background: #ffffff;
+  border: 1px solid var(--line);
+  box-shadow: var(--card-shadow);
+}
+
+.hero-carousel {
+  overflow: hidden;
+}
+
+.hero-carousel-track {
+  display: flex;
+  transition: transform 0.8s ease;
+  will-change: transform;
+}
+
+.hero-slide {
+  flex: 0 0 100%;
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+}
+
+.hero-progress {
+  height: 4px;
+  background: #e4e8eb;
+}
+
+.hero-progress-bar {
+  display: block;
+  width: 0%;
+  height: 100%;
+  background: var(--accent);
+}
+
+.hero-meta {
+  border-top: 1px solid var(--line);
+  padding: 0.85rem 1rem 1rem;
+}
+
+.meta-label {
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-soft);
+}
+
+.hero-meta h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: 1.6rem;
+  line-height: 1;
+  margin-top: 0.35rem;
+}
+
+.hero-meta p {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-top: 0.3rem;
+}
+
+.trending-carousel-section {
+  width: 100%;
+  margin-top: 0.4rem;
+  background: var(--block-tint);
+  padding: 2.7rem 0;
+}
+
+.trending-carousel-section .section-heading,
+.trending-carousel {
+  width: min(1240px, 92vw);
+  margin: 0 auto;
+}
+
+.section-heading {
+  margin-bottom: 1.6rem;
+}
+
+.section-heading.center {
+  text-align: center;
+}
+
+.trending-heading {
+  text-align: left;
+  opacity: 0;
+  transform: translateX(-64px);
+}
+
+.trending-heading.is-visible {
+  animation: trendingTitleIn 1.1s ease-out both;
+}
+
+@keyframes trendingTitleIn {
   from {
     opacity: 0;
-    transform: translateX(20px);
+    transform: translateX(-64px);
   }
   to {
     opacity: 1;
@@ -805,168 +233,527 @@ html {
   }
 }
 
-/* ═══════════════════════════════════════════════════════════════════
-   POLL SECTION — Interactive poll for user engagement
-   ═══════════════════════════════════════════════════════════════════ */
-
-.poll-section {
-  background-color: rgba(38, 53, 39, 0.8);
-  padding: 3rem 2rem;
-  margin-top: 3rem;
-  text-align: center;
-  border-top: 2px solid #ffc831;
-  border-bottom: 2px solid #ffc831;
-}
-
-.poll-section h2 {
-  margin-bottom: 2rem;
-  color: #ffc831;
-}
-
-.poll-container {
+.section-heading.between {
   display: flex;
-  justify-content: center;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
 }
 
-.poll-option {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  cursor: pointer;
-  font-size: 18px;
-  font-family: "Hind", sans-serif;
-  transition: color 0.3s ease;
+.section-heading h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 500;
+  line-height: 0.95;
 }
 
-.poll-option input[type="radio"] {
-  cursor: pointer;
-  width: 20px;
-  height: 20px;
-  accent-color: #ffc831;
+.section-heading p {
+  color: var(--ink-soft);
+  margin-top: 0.7rem;
+  max-width: 58ch;
 }
 
-.poll-option:hover {
-  color: #ffc831;
-}
-
-.poll-option span {
-  user-select: none;
-}
-
-.poll-submit {
-  background-color: #ffc831;
-  color: #263527;
-  padding: 0.75rem 2rem;
-  font-size: 16px;
-  font-weight: 600;
-  font-family: "Hind", sans-serif;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.poll-submit:hover {
-  background-color: #e2b344;
-  transform: scale(1.05);
-}
-
-.poll-submit:active {
-  transform: scale(0.98);
-}
-
-/* Mobile responsiveness for poll */
-@media (max-width: 768px) {
-  .poll-section {
-    padding: 2rem 1rem;
-  }
-
-  .poll-container {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .poll-option {
-    justify-content: center;
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   FOOTER — Consistent footer with sitemap across all pages
-   ═══════════════════════════════════════════════════════════════════ */
-
-.site-footer {
-  background-color: #1a2620;
-  border-top: 1px solid #ffc831;
-  padding: 1.5rem 0;
-  margin-top: 3rem;
-  font-size: 12px;
-  font-family: "Hind", sans-serif;
-}
-
-.footer-content {
-  text-align: center;
-  color: #999;
-}
-
-.footer-sitemap {
-  margin-bottom: 1rem;
-}
-
-.footer-sitemap h4 {
-  font-size: 12px;
-  color: #ffc831;
-  margin-bottom: 0.5rem;
+.section-heading a {
+  color: var(--steel);
+  font-size: 0.73rem;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
-  letter-spacing: 1px;
-  font-weight: 600;
-  padding: 0;
 }
 
-.footer-sitemap ul {
-  list-style: none;
+.trending-carousel {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.carousel-window {
+  overflow: hidden;
+}
+
+.trending-track {
+  display: flex;
+  gap: 24px;
+  transition: transform 0.35s ease;
+  will-change: transform;
+}
+
+.trending-slide {
+  flex: 0 0 calc((100% - 24px) / 2);
+}
+
+.trending-slide img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 1px solid #c8d2d8;
+}
+
+.carousel-arrow {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: 1px solid #f7a094;
+  background: #fff;
+  color: var(--accent);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.carousel-arrow:hover:not(:disabled) {
+  background: var(--accent);
+  color: #fff;
+}
+
+.carousel-arrow:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+.poll-band {
+  margin-top: 2.7rem;
+  background: #e8edd8;
+  text-align: center;
+  padding: 2.2rem 1rem;
+}
+
+.poll-band h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  color: var(--accent);
+  font-style: italic;
+  margin-bottom: 0.9rem;
+}
+
+.poll-form {
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
+  align-items: center;
   flex-wrap: wrap;
+  gap: 1rem 1.6rem;
 }
 
-.footer-sitemap ul li a {
-  color: #ccc;
-  text-decoration: none;
-  font-size: 12px;
-  transition: color 0.3s ease;
+.poll-form label {
+  color: var(--ink-soft);
+  font-size: 0.84rem;
 }
 
-.footer-sitemap ul li a:hover {
-  color: #ffc831;
+.poll-form input {
+  margin-right: 0.35rem;
+  accent-color: var(--steel);
 }
 
-.site-footer p {
-  font-size: 11px;
-  color: #666;
-  padding: 0;
+.poll-form button {
+  border: 0;
+  border-radius: 2px;
+  background: #9ea4e5;
+  color: #fff;
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.45rem 0.95rem;
+  cursor: pointer;
+}
+
+.content-block {
+  padding: 3.2rem 0;
+}
+
+.article-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.article-grid.three-up {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.story-card img {
+  width: 100%;
+  aspect-ratio: 4 / 3.4;
+  object-fit: cover;
+  border: 1px solid #cad3da;
+}
+
+.kicker {
+  margin-top: 0.7rem;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+}
+
+.story-card h3 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.9rem;
+  font-weight: 500;
+  line-height: 0.96;
+  margin-top: 0.35rem;
+}
+
+.story-card p {
+  margin-top: 0.5rem;
+  color: var(--ink-soft);
+  font-size: 0.86rem;
+}
+
+.story-card a {
+  margin-top: 0.8rem;
+  font-size: 0.64rem;
+  display: inline-block;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--ink);
+}
+
+.events-page {
+  padding-top: 2.6rem;
+  padding-bottom: 3.2rem;
+}
+
+.events-featured {
+  margin-bottom: 2.1rem;
+}
+
+.featured-article-link {
+  display: block;
+}
+
+.featured-article-link:hover .featured-article-card,
+.featured-article-link:focus-visible .featured-article-card {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 34px rgba(20, 26, 34, 0.12);
+}
+
+.featured-article-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--card-shadow);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.featured-article-card img {
+  width: 100%;
+  max-height: 620px;
+  object-fit: cover;
+}
+
+.featured-article-copy {
+  padding: 1.3rem 1.4rem 1.5rem;
+}
+
+.featured-article-copy h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 0.95;
+  margin-top: 0.7rem;
+}
+
+.featured-article-copy p {
+  margin-top: 0.7rem;
+  color: var(--ink-soft);
+  max-width: 70ch;
+}
+
+.events-duo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.3rem;
+  margin-bottom: 2.2rem;
+}
+
+.events-duo-card {
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--card-shadow);
+  padding-bottom: 1rem;
+}
+
+.events-duo-card img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+
+.events-duo-card h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2rem;
+  font-weight: 500;
+  line-height: 0.95;
+  margin: 0.8rem 0.95rem 0.35rem;
+}
+
+.events-duo-card p {
+  margin: 0 0.95rem;
+  color: var(--ink-soft);
+  font-size: 0.9rem;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+
+.grid-article {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #fff;
+  aspect-ratio: 1 / 1;
+}
+
+.grid-article img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.45s ease;
+}
+
+.grid-title {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
+  padding: 0.85rem 0.7rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.4rem;
+  color: #fff;
+  background: linear-gradient(to top, rgba(20, 26, 34, 0.88), rgba(20, 26, 34, 0.05));
+  transform: translateY(100%);
+  opacity: 0;
+  transition: transform 0.35s ease, opacity 0.35s ease;
+}
+
+.grid-article:hover .grid-title,
+.grid-article:focus-within .grid-title {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.grid-article:hover img,
+.grid-article:focus-within img {
+  transform: scale(1.06);
+}
+
+.event-article-page {
+  width: min(980px, 92vw);
+  margin: 0 auto;
+  padding: 2.4rem 0 3.2rem;
+}
+
+.event-article {
+  background: #fff;
+  border: 1px solid var(--line);
+  box-shadow: var(--card-shadow);
+}
+
+.event-hero-image {
+  width: 100%;
+  max-height: 520px;
+  object-fit: cover;
+}
+
+.event-article-body {
+  padding: 1.3rem 1.35rem 1.5rem;
+}
+
+.event-article-body h1 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4.8vw, 3.2rem);
+  line-height: 0.95;
+  margin-top: 0.65rem;
+  margin-bottom: 0.95rem;
+}
+
+.event-context-list {
+  margin: 0 0 1rem 1.1rem;
+  color: var(--ink-soft);
+}
+
+.event-context-list li {
+  margin-bottom: 0.35rem;
+}
+
+.event-article-body p {
+  color: var(--ink-soft);
+  margin-bottom: 0.85rem;
+}
+
+.event-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+  margin-bottom: 0.9rem;
+}
+
+.event-split.reverse {
+  direction: rtl;
+}
+
+.event-split.reverse > * {
+  direction: ltr;
+}
+
+.event-inline-image {
+  width: 100%;
   margin: 0;
 }
 
-/* Mobile responsiveness for footer */
-@media (max-width: 768px) {
-  .site-footer {
-    padding: 1rem;
+.event-inline-image img {
+  width: 100%;
+  border: 1px solid var(--line);
+}
+
+.event-text-box {
+  width: 100%;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  padding: 0.9rem;
+}
+
+.site-footer {
+  border-top: 1px solid var(--line);
+  margin-top: 1.4rem;
+  padding: 1.2rem 0 1.5rem;
+}
+
+.footer-inner {
+  width: min(1240px, 92vw);
+  margin: 0 auto;
+  color: #6e7782;
+  display: grid;
+  grid-template-columns: 1.3fr auto;
+  gap: 0.8rem 2rem;
+  align-items: center;
+}
+
+.footer-brand {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+}
+
+.footer-inner nav {
+  display: flex;
+  gap: 1.2rem;
+  font-size: 0.74rem;
+}
+
+.copyright {
+  grid-column: 1 / -1;
+  border-top: 1px solid #e4e8eb;
+  padding-top: 0.8rem;
+  font-size: 0.62rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  .hero {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
   }
 
-  .footer-sitemap ul {
-    gap: 1rem;
+  .hero-feature {
+    max-width: 520px;
   }
 
-  .footer-sitemap ul li a {
-    font-size: 11px;
+  .article-grid.three-up {
+    grid-template-columns: 1fr 1fr;
   }
 
-  .footer-sitemap h4 {
-    font-size: 11px;
+  .events-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .story-card:last-child {
+    grid-column: 1 / -1;
+  }
+
+}
+
+@media (max-width: 780px) {
+  .header-inner {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0.8rem 0;
+    gap: 0.7rem 1rem;
+  }
+
+  .top-nav {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 0.3rem;
+  }
+
+  .trending-carousel {
+    gap: 0.4rem;
+  }
+
+  .trending-track {
+    gap: 14px;
+  }
+
+  .carousel-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 1.2rem;
+  }
+
+  .article-grid.three-up {
+    grid-template-columns: 1fr;
+  }
+
+  .events-duo {
+    grid-template-columns: 1fr;
+  }
+
+  .event-split {
+    grid-template-columns: 1fr;
+    gap: 0.7rem;
+  }
+
+  .event-split.reverse {
+    direction: ltr;
+  }
+
+  .story-card:last-child {
+    grid-column: auto;
+  }
+
+  .footer-inner {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer-inner nav {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 640px) {
+  .trending-slide {
+    flex: 0 0 100%;
+  }
+
+  .section-heading.between {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .poll-form {
+    flex-direction: column;
+  }
+
+  .events-grid {
+    grid-template-columns: 1fr;
   }
 }
