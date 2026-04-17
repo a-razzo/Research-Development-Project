@@ -20,6 +20,7 @@
 
   <main>
     <section class="hero">
+      <span class="hero-watermark" aria-hidden="true">EH News</span>
       <div class="hero-copy">
         <h1 class="hero-title">Today on<br>Edge Hill News</h1>
         <p class="hero-summary">Edge Hill News strives to keep technology students up to date with the latest stories on events, department highlights, and feature articles on people and teachers in the department and what they have achieved.</p>
@@ -27,9 +28,9 @@
       <article class="hero-feature">
         <div class="hero-carousel" id="heroCarousel" aria-label="Featured story carousel">
           <div class="hero-carousel-track">
-            <img class="hero-slide" src="images/historic4.png" alt="Featured story portrait one">
-            <img class="hero-slide" src="images/historic3.png" alt="Featured story portrait two">
-            <img class="hero-slide" src="images/historic2.png" alt="Featured story portrait three">
+            <img class="hero-slide" src="images/tech-careers-1.svg" alt="Tech Hub careers event slide one">
+            <img class="hero-slide" src="images/tech-careers-2.svg" alt="Tech Hub careers event slide two">
+            <img class="hero-slide" src="images/tech-careers-3.svg" alt="Tech Hub careers event slide three">
           </div>
         </div>
         <div class="hero-progress" aria-hidden="true">
@@ -37,13 +38,14 @@
         </div>
         <div class="hero-meta">
           <p class="meta-label">NOW LIVE</p>
-          <h2>Dr. Elena Vance</h2>
-          <p>On adaptive neural networks</p>
+          <h2>Tech Hub Careers Live</h2>
+          <p>Placements and software engineering hiring</p>
         </div>
       </article>
     </section>
 
     <section class="trending-carousel-section">
+      <span class="brand-watermark" aria-hidden="true">EH</span>
       <div class="section-heading trending-heading">
         <h2>Trending Articles</h2>
       </div>
@@ -117,24 +119,24 @@
 
   <script>
     (function () {
-      const trendingHeading = document.querySelector('.trending-heading');
-      if (!trendingHeading || !('IntersectionObserver' in window)) {
-        return;
-      }
+      if (!('IntersectionObserver' in window)) { return; }
 
       const observer = new IntersectionObserver(function (entries) {
         entries.forEach(function (entry) {
+          const el = entry.target;
           if (entry.isIntersecting) {
-            trendingHeading.classList.remove('is-visible');
-            void trendingHeading.offsetWidth;
-            trendingHeading.classList.add('is-visible');
+            el.classList.remove('is-visible');
+            void el.offsetWidth;
+            el.classList.add('is-visible');
           } else {
-            trendingHeading.classList.remove('is-visible');
+            el.classList.remove('is-visible');
           }
         });
       }, { threshold: 0.35 });
 
-      observer.observe(trendingHeading);
+      document.querySelectorAll('h2').forEach(function (h) {
+        observer.observe(h);
+      });
     })();
 
     (function () {
