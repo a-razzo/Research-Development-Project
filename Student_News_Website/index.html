@@ -10,7 +10,7 @@
   <header class="site-header">
     <div class="header-inner">
       <a class="brand" href="index.html">EH News</a>
-      <nav class="top-nav" aria-label="Primary">
+      <nav class="top-nav">
         <a href="events.html">Events</a>
         <a href="people.html">People</a>
         <a href="technology.html">Technology</a>
@@ -20,20 +20,26 @@
 
   <main>
     <section class="hero">
-      <span class="hero-watermark" aria-hidden="true">EH News</span>
+      <span class="hero-watermark">EH News</span>
       <div class="hero-copy">
-        <h1 class="hero-title">Today on<br>Edge Hill News</h1>
+        <h1 class="hero-title">
+          <span>Today on</span>
+          <span>Edge Hill News</span>
+        </h1>
         <p class="hero-summary">Edge Hill News strives to keep technology students up to date with the latest stories on events, department highlights, and feature articles on people and teachers in the department and what they have achieved.</p>
       </div>
       <article class="hero-feature">
-        <div class="hero-carousel" id="heroCarousel" aria-label="Featured story carousel">
-          <div class="hero-carousel-track">
-            <img class="hero-slide" src="images/tech-careers-1.svg" alt="Tech Hub careers event slide one">
-            <img class="hero-slide" src="images/tech-careers-2.svg" alt="Tech Hub careers event slide two">
-            <img class="hero-slide" src="images/tech-careers-3.svg" alt="Tech Hub careers event slide three">
+        <h3 class="hero-feature-title">Today - Read me now!</h3>
+        <a class="hero-carousel-link" href="events-tech-hub-careers.html">
+          <div class="hero-carousel" id="heroCarousel">
+            <div class="hero-carousel-track">
+              <img class="hero-slide" src="images/tech-careers-1.svg" alt="Tech Hub careers event slide one">
+              <img class="hero-slide" src="images/tech-careers-2.svg" alt="Tech Hub careers event slide two">
+              <img class="hero-slide" src="images/tech-careers-3.svg" alt="Tech Hub careers event slide three">
+            </div>
           </div>
-        </div>
-        <div class="hero-progress" aria-hidden="true">
+        </a>
+        <div class="hero-progress">
           <span class="hero-progress-bar" id="heroProgressBar"></span>
         </div>
         <div class="hero-meta">
@@ -45,21 +51,18 @@
     </section>
 
     <section class="trending-carousel-section">
-      <span class="brand-watermark" aria-hidden="true">EH</span>
+      <span class="brand-watermark">EH</span>
       <div class="section-heading trending-heading">
-        <h2>Trending Articles</h2>
+        <h2>Editors Choice</h2>
+        <p class="editors-choice-intro">Even our editors have their favourites. This week, they have picked the story they most enjoyed reading and learning from, take a look!</p>
       </div>
-      <div class="trending-carousel" aria-label="Trending articles carousel">
-        <button class="carousel-arrow left" type="button" aria-label="Previous articles">&#8249;</button>
-        <div class="carousel-window">
-          <div class="trending-track" id="trendingTrack">
-            <article class="trending-slide"><img src="images/historic2.png" alt="Trending story one"></article>
-            <article class="trending-slide"><img src="images/historic3.png" alt="Trending story two"></article>
-            <article class="trending-slide"><img src="images/historic4.png" alt="Trending story three"></article>
-            <article class="trending-slide"><img src="images/historic2.png" alt="Trending story four"></article>
-          </div>
+      <div class="editors-choice-wrapper">
+        <div class="editors-image-wrapper">
+          <img src="images/historic4.png" alt="Editors choice featured article image">
         </div>
-        <button class="carousel-arrow right" type="button" aria-label="Next articles">&#8250;</button>
+        <div class="editors-header-wrapper">
+          <p class="editors-display-title">Take a peek!</p>
+        </div>
       </div>
     </section>
 
@@ -74,30 +77,27 @@
 
     <section class="content-block">
       <div class="section-heading between">
-        <h2>Expert Perspectives</h2>
+        <h2>Place holder title</h2>
         <a href="technology.html">View Archive &#8250;</a>
       </div>
       <div class="article-grid three-up">
         <article class="story-card">
           <img src="images/historic2.png" alt="Article about quantum systems">
-          <p class="kicker">CURRENT OPERATIONS</p>
-          <h3>Beyond the Qubit: A New Language for Reality</h3>
-          <p>Julian Thorne discusses topological implications of non-deterministic programming.</p>
-          <a href="technology.html">Dive In to Interview</a>
+          <p class="kicker">place holder title</p>
+          <h3>place holder title</h3>
+          <p>placeholder description.</p>
         </article>
         <article class="story-card">
           <img src="images/historic3.png" alt="Article about synthetic intelligence">
-          <p class="kicker">SPECIAL INTELLIGENCE</p>
-          <h3>The Ghost in the Code: Ethics of Generative Models</h3>
-          <p>An honest view on why the next breakthrough in AI must be technical and sociological.</p>
-          <a href="people.html">Read Full Feature</a>
+          <p class="kicker">place holder title</p>
+          <h3>place holder title</h3>
+          <p>placeholder description.</p>
         </article>
         <article class="story-card">
           <img src="images/historic4.png" alt="Article about cybersecurity">
-          <p class="kicker">CYBERSECURITY</p>
-          <h3>The Digital Fortress is an Illusion</h3>
-          <p>A deep dive into emergent architectures with the power of modern encryption patterns.</p>
-          <a href="events.html">View Case Supplement</a>
+          <p class="kicker">place holder title</p>
+          <h3>place holder title</h3>
+          <p>placeholder description.</p>
         </article>
       </div>
     </section>
@@ -106,14 +106,14 @@
 
   <footer class="site-footer">
     <div class="footer-inner">
-      <p class="footer-brand">Scholar & Sky - The Digital Curator of Computer Science</p>
-      <nav aria-label="Footer">
+      <p class="footer-brand">EH News - Student News at Edge Hill University</p>
+      <nav>
         <a href="index.html">Policy</a>
         <a href="technology.html">Archives</a>
         <a href="people.html">Contact</a>
         <a href="events.html">Library</a>
       </nav>
-      <p class="copyright">&copy; 2026 Scholar & Sky. An intellectual report shaped by the committed scholar.</p>
+      <p class="copyright">&copy; 2026 Edge Hill University. All rights reserved.</p>
     </div>
   </footer>
 
@@ -137,6 +137,11 @@
       document.querySelectorAll('h2').forEach(function (h) {
         observer.observe(h);
       });
+    })();
+
+    (function () {
+      const heroTitle = document.querySelector('.hero-title');
+      if (heroTitle) { heroTitle.classList.add('animate'); }
     })();
 
     (function () {
@@ -173,53 +178,6 @@
       }, slideDuration);
     })();
 
-    (function () {
-      const carousel = document.querySelector('.trending-carousel');
-      const track = document.getElementById('trendingTrack');
-      const prevBtn = carousel.querySelector('.carousel-arrow.left');
-      const nextBtn = carousel.querySelector('.carousel-arrow.right');
-      const slides = Array.from(track.children);
-      let index = 0;
-
-      if (!slides.length) {
-        return;
-      }
-
-      function visibleCount() {
-        if (window.innerWidth <= 640) return 1;
-        return 2;
-      }
-
-      function updateCarousel() {
-        const cardWidth = slides[0].getBoundingClientRect().width;
-        const computed = window.getComputedStyle(track);
-        const gap = parseFloat(computed.columnGap || computed.gap || '0');
-        track.style.transform = 'translateX(' + (-index * (cardWidth + gap)) + 'px)';
-
-        const maxIndex = Math.max(0, slides.length - visibleCount());
-        prevBtn.disabled = index <= 0;
-        nextBtn.disabled = index >= maxIndex;
-      }
-
-      prevBtn.addEventListener('click', function () {
-        index = Math.max(0, index - 1);
-        updateCarousel();
-      });
-
-      nextBtn.addEventListener('click', function () {
-        const maxIndex = Math.max(0, slides.length - visibleCount());
-        index = Math.min(maxIndex, index + 1);
-        updateCarousel();
-      });
-
-      window.addEventListener('resize', function () {
-        const maxIndex = Math.max(0, slides.length - visibleCount());
-        if (index > maxIndex) index = maxIndex;
-        updateCarousel();
-      });
-
-      updateCarousel();
-    })();
   </script>
 </body>
 </html>
