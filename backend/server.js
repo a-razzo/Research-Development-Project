@@ -27,6 +27,7 @@ function initializeDatabase() {
     CREATE TABLE IF NOT EXISTS poll_responses (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       poll_id TEXT NOT NULL,
+      voter_id TEXT,
       option_value TEXT NOT NULL,
       timestamp DATETIME DEFAULT CURRENT_TIMESTAMP
     )
@@ -34,7 +35,26 @@ function initializeDatabase() {
     if (err) {
       console.error('Error creating table:', err);
     } else {
-      console.log('Poll responses table initialized');
+      db.run(
+        `ALTER TABLE poll_responses ADD COLUMN voter_id TEXT`,
+        (alterErr) => {
+          if (alterErr && !alterErr.message.includes('duplicate column name')) {
+            console.error('Error ensuring voter_id column:', alterErr);
+            return;
+          }
+
+          db.run(
+            `CREATE UNIQUE INDEX IF NOT EXISTS idx_poll_voter_unique ON poll_responses(poll_id, voter_id) WHERE voter_id IS NOT NULL`,
+            (indexErr) => {
+              if (indexErr) {
+                console.error('Error creating unique vote index:', indexErr);
+              } else {
+                console.log('Poll responses table initialized with one-vote-per-user constraint');
+              }
+            }
+          );
+        }
+      );
     }
   });
 }
@@ -81,17 +101,26 @@ app.get('/api/poll/:pollId', (req, res) => {
 // POST: Submit a vote
 app.post('/api/poll/:pollId/vote', (req, res) => {
   const { pollId } = req.params;
-  const { option } = req.body;
+  const { option, voterId } = req.body;
   
   if (!option) {
     return res.status(400).json({ error: 'Option is required' });
   }
+
+  if (!voterId) {
+    return res.status(400).json({ error: 'Voter ID is required' });
+  }
   
   db.run(
-    `INSERT INTO poll_responses (poll_id, option_value) VALUES (?, ?)`,
-    [pollId, option],
+    `INSERT INTO poll_responses (poll_id, voter_id, option_value) VALUES (?, ?, ?)`,
+    [pollId, voterId, option],
     function(err) {
       if (err) {
+        if (err.message && err.message.includes('UNIQUE constraint failed')) {
+          return res.status(409).json({
+            error: 'You have already voted in this poll'
+          });
+        }
         return res.status(500).json({ error: 'Database error', details: err.message });
       }
       

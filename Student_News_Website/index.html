@@ -67,12 +67,14 @@
     </section>
 
     <section class="poll-band">
-      <h2>Weekly Quick Poll</h2>
-      <form class="poll-form">
-        <label><input type="radio" name="poll" value="quantum" required> Quantum Supremacy</label>
-        <label><input type="radio" name="poll" value="neural"> Neural Ethics</label>
-        <button type="submit">Submit Vote</button>
+      <h2>Do you prefer Java or JavaScript?</h2>
+      <form class="poll-form" id="weeklyPollForm">
+        <label><input type="radio" name="poll" value="java" required> Java</label>
+        <label><input type="radio" name="poll" value="javascript"> JavaScript</label>
+        <button type="submit" id="pollSubmitBtn">Submit Vote</button>
       </form>
+      <p class="poll-status" id="pollStatus"></p>
+      <div class="poll-results" id="pollResults"></div>
     </section>
 
     <section class="content-block">
@@ -176,6 +178,150 @@
       setInterval(function () {
         setHeroSlide(heroIndex + 1);
       }, slideDuration);
+    })();
+
+    (function () {
+      const pollForm = document.getElementById('weeklyPollForm');
+      const pollSubmitBtn = document.getElementById('pollSubmitBtn');
+      const pollStatus = document.getElementById('pollStatus');
+      const pollResults = document.getElementById('pollResults');
+
+      if (!pollForm || !pollSubmitBtn || !pollStatus || !pollResults) {
+        return;
+      }
+
+      const API_BASE_URL = 'http://localhost:5000';
+      const POLL_ID = 'main-poll';
+      const VOTER_ID_KEY = 'eh-news-voter-id';
+      const VOTED_KEY = 'eh-news-voted-' + POLL_ID;
+      const optionLabels = {
+        java: 'Java',
+        javascript: 'JavaScript'
+      };
+      const optionAliases = {
+        java: ['java', 'option1', 'quantum', 'a'],
+        javascript: ['javascript', 'option2', 'neural', 'b']
+      };
+
+      function getOrCreateVoterId() {
+        let id = localStorage.getItem(VOTER_ID_KEY);
+        if (id) return id;
+
+        if (window.crypto && typeof window.crypto.randomUUID === 'function') {
+          id = window.crypto.randomUUID();
+        } else {
+          id = 'voter-' + Date.now() + '-' + Math.floor(Math.random() * 1e9);
+        }
+
+        localStorage.setItem(VOTER_ID_KEY, id);
+        return id;
+      }
+
+      function setPollLocked(locked) {
+        pollSubmitBtn.disabled = locked;
+        pollForm.querySelectorAll('input[name="poll"]').forEach(function (input) {
+          input.disabled = locked;
+        });
+      }
+
+      function renderResults(data) {
+        const rows = Array.isArray(data.results) ? data.results : [];
+
+        const tally = { java: 0, javascript: 0 };
+        rows.forEach(function (row) {
+          const normalized = String(row.option || '').toLowerCase();
+          if (optionAliases.java.includes(normalized)) {
+            tally.java += Number(row.votes) || 0;
+          } else if (optionAliases.javascript.includes(normalized)) {
+            tally.javascript += Number(row.votes) || 0;
+          }
+        });
+
+        const visibleTotal = tally.java + tally.javascript;
+        if (!visibleTotal) {
+          pollResults.innerHTML = '<p class="poll-empty">No votes yet. Be the first to vote.</p>';
+          return;
+        }
+
+        pollResults.innerHTML = Object.keys(optionLabels).map(function (key) {
+          const votes = tally[key] || 0;
+          const percent = visibleTotal > 0 ? (votes / visibleTotal) * 100 : 0;
+
+          return (
+            '<div class="poll-result-item">' +
+              '<div class="poll-result-head">' +
+                '<span>' + optionLabels[key] + '</span>' +
+                '<span>' + votes + ' vote' + (votes === 1 ? '' : 's') + ' (' + percent.toFixed(1) + '%)</span>' +
+              '</div>' +
+              '<div class="poll-bar-track"><span class="poll-bar-fill" style="width:' + percent + '%"></span></div>' +
+            '</div>'
+          );
+        }).join('');
+      }
+
+      async function loadResults() {
+        const response = await fetch(API_BASE_URL + '/api/poll/' + POLL_ID);
+        if (!response.ok) {
+          throw new Error('Could not load poll results');
+        }
+        const data = await response.json();
+        renderResults(data);
+      }
+
+      pollForm.addEventListener('submit', async function (event) {
+        event.preventDefault();
+
+        if (localStorage.getItem(VOTED_KEY) === 'true') {
+          pollStatus.textContent = 'You have already voted in this poll.';
+          setPollLocked(true);
+          return;
+        }
+
+        const selected = pollForm.querySelector('input[name="poll"]:checked');
+        if (!selected) {
+          pollStatus.textContent = 'Please choose an option before submitting.';
+          return;
+        }
+
+        setPollLocked(true);
+        pollStatus.textContent = 'Submitting your vote...';
+
+        try {
+          const voterId = getOrCreateVoterId();
+          const response = await fetch(API_BASE_URL + '/api/poll/' + POLL_ID + '/vote', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ option: selected.value, voterId: voterId })
+          });
+
+          if (response.status === 409) {
+            localStorage.setItem(VOTED_KEY, 'true');
+            pollStatus.textContent = 'You have already voted in this poll. Here are the latest results:';
+            await loadResults();
+            return;
+          }
+
+          if (!response.ok) {
+            throw new Error('Vote submission failed');
+          }
+
+          localStorage.setItem(VOTED_KEY, 'true');
+          pollStatus.textContent = 'Vote submitted. Here is what everyone has voted for:';
+          await loadResults();
+        } catch (error) {
+          pollStatus.textContent = 'Could not connect to the poll server. Make sure Docker is running and the backend is up.';
+          setPollLocked(false);
+        }
+      });
+
+      if (localStorage.getItem(VOTED_KEY) === 'true') {
+        setPollLocked(true);
+        pollStatus.textContent = 'You have already voted in this poll. Here are the latest results:';
+      }
+
+      loadResults().catch(function () {
+        pollStatus.textContent = 'Live poll results are unavailable until the Docker backend starts.';
+      });
     })();
 
   </script>
