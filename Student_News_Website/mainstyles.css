@@ -479,8 +479,35 @@ h2.is-visible {
 .poll-band {
   margin-top: 2.7rem;
   background: #e8edd8;
+  position: relative;
+  overflow: hidden;
   text-align: center;
   padding: 2.2rem 1rem;
+}
+
+.poll-watermark {
+  position: absolute;
+  left: 1.6rem;
+  top: -0.55rem;
+  font-family: "Manrope", sans-serif;
+  font-size: clamp(4rem, 8.8vw, 6rem);
+  font-weight: 900;
+  line-height: 0.84;
+  letter-spacing: -0.04em;
+  color: var(--ink);
+  opacity: 0.055;
+  pointer-events: none;
+  user-select: none;
+  white-space: nowrap;
+  z-index: 0;
+}
+
+.poll-band > h2,
+.poll-band > .poll-form,
+.poll-band > .poll-status,
+.poll-band > .poll-results {
+  position: relative;
+  z-index: 1;
 }
 
 .home-watermark-band {
@@ -1162,6 +1189,12 @@ h2.is-visible {
     width: clamp(44rem, 140vw, 64rem);
     height: clamp(54rem, 178vw, 82rem);
   }
+
+  .poll-watermark {
+    left: 1.1rem;
+    top: 0.25rem;
+    font-size: clamp(3.1rem, 11.5vw, 4.6rem);
+  }
 }
 
 @media (max-width: 640px) {
@@ -1187,5 +1220,11 @@ h2.is-visible {
     right: -16rem;
     width: clamp(38rem, 168vw, 54rem);
     height: clamp(48rem, 206vw, 70rem);
+  }
+
+  .poll-watermark {
+    left: 0.9rem;
+    top: 0.9rem;
+    font-size: clamp(2.6rem, 14.5vw, 3.9rem);
   }
 }
