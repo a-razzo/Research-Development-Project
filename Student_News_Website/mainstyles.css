@@ -483,6 +483,38 @@ h2.is-visible {
   padding: 2.2rem 1rem;
 }
 
+.home-watermark-band {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.home-watermark-band::before {
+  content: '';
+  position: absolute;
+  top: -10rem;
+  right: -18rem;
+  width: clamp(56rem, 112vw, 96rem);
+  height: clamp(66rem, 148vw, 108rem);
+  background-image: url("images/newspaper.svg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  opacity: 0.06;
+  pointer-events: none;
+  user-select: none;
+  z-index: 0;
+}
+
+.home-watermark-band .poll-band,
+.home-watermark-band .content-block {
+  position: relative;
+  z-index: 1;
+  width: min(1240px, 92vw);
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .poll-band h2 {
   font-family: "Cormorant Garamond", serif;
   font-size: clamp(1.9rem, 4vw, 2.8rem);
@@ -793,7 +825,7 @@ h2.is-visible {
 }
 
 .event-article-page {
-  width: min(980px, 92vw);
+  width: min(1120px, 94vw);
   margin: 0 auto;
   padding: 2.4rem 0 3.2rem;
 }
@@ -804,33 +836,94 @@ h2.is-visible {
   box-shadow: var(--card-shadow);
 }
 
+.event-article-hero {
+  display: block;
+}
+
 .event-hero-image {
   width: 100%;
-  max-height: 520px;
+  height: auto;
+  max-height: 420px;
   object-fit: cover;
 }
 
-.event-article-body {
-  padding: 1.3rem 1.35rem 1.5rem;
+.event-hero-copy {
+  padding: 1.35rem 1.5rem 1.55rem;
+  border-top: 1px solid var(--line);
+  background: #fff;
 }
 
-.event-article-body h1 {
+.event-hero-kicker {
+  margin: 0 0 0.55rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--steel);
+}
+
+.event-article-body {
+  padding: 1.5rem 1.5rem 1.8rem;
+}
+
+.event-hero-copy h1 {
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(2rem, 4.8vw, 3.2rem);
+  font-size: clamp(2.4rem, 5.3vw, 4.35rem);
   line-height: 1;
   padding-top: 0.08em;
   padding-bottom: 0.12em;
-  margin-top: 0.65rem;
-  margin-bottom: 0.95rem;
+  margin: 0;
 }
 
-.event-context-list {
-  margin: 0 0 1rem 1.1rem;
+.event-context-table-wrap {
+  margin: 0 0 0.7rem;
+  overflow-x: auto;
+}
+
+.event-context-heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.8rem, 3.6vw, 2.45rem);
+  font-weight: 600;
+  line-height: 1;
+  margin: 0 0 0.8rem;
+  opacity: 1;
+  transform: none;
+  animation: none;
+}
+
+.event-context-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+}
+
+.event-context-table th,
+.event-context-table td {
+  padding: 1rem 1.05rem;
+  text-align: left;
+  vertical-align: top;
+  border-right: 1px solid var(--line);
+}
+
+.event-context-table th:last-child,
+.event-context-table td:last-child {
+  border-right: 0;
+}
+
+.event-context-table thead th {
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--steel);
+  background: #eef3f6;
+  border-bottom: 1px solid var(--line);
+}
+
+.event-context-table tbody td {
   color: var(--ink-soft);
-}
-
-.event-context-list li {
-  margin-bottom: 0.35rem;
+  font-size: 1rem;
+  line-height: 1.55;
 }
 
 .event-article-body p {
@@ -840,12 +933,32 @@ h2.is-visible {
   margin-bottom: 1.8rem;
 }
 
+.bold {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.event-abstract {
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0;
+}
+
+.event-main-content {
+  margin-top: 13rem;
+}
+
+.event-main-intro {
+  font-size: 1.18rem;
+  animation: none;
+}
+
 .event-split {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  align-items: start;
-  margin-bottom: 1.8rem;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+  gap: 1.25rem;
+  align-items: stretch;
+  margin-bottom: 2rem;
 }
 
 .event-split.reverse {
@@ -859,10 +972,21 @@ h2.is-visible {
 .event-inline-image {
   width: 100%;
   margin: 0;
+  position: relative;
+  z-index: 0;
+  transition: transform 0.45s ease;
+}
+
+.event-inline-image:hover,
+.event-inline-image:focus-within {
+  transform: scale(1.04);
+  z-index: 1;
 }
 
 .event-inline-image img {
   width: 100%;
+  height: clamp(260px, 31vw, 360px);
+  object-fit: cover;
   border: 1px solid var(--line);
 }
 
@@ -870,7 +994,41 @@ h2.is-visible {
   width: 100%;
   background: #f8fafc;
   border: 1px solid var(--line);
-  padding: 1.3rem;
+  padding: 1.3rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.event-text-box p:last-child {
+  margin-bottom: 0;
+}
+
+.event-article-body p:not(.event-abstract):not(.event-main-intro),
+.event-article-body h2:not(.event-context-heading),
+.event-article-body h3,
+.event-article-body blockquote,
+.event-article-body hr {
+  animation: event-text-appear ease-in both;
+  animation-timeline: view();
+  animation-range: 0vh 42vh;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .event-article-body p:not(.event-abstract):not(.event-main-intro),
+  .event-article-body h2:not(.event-context-heading),
+  .event-article-body h3,
+  .event-article-body blockquote,
+  .event-article-body hr {
+    animation: none;
+  }
+}
+
+@keyframes event-text-appear {
+  from {
+    opacity: 0;
+    translate: 0 8rem;
+  }
 }
 
 .site-footer {
@@ -927,6 +1085,10 @@ h2.is-visible {
     grid-template-columns: repeat(2, 1fr);
   }
 
+  .event-article-page {
+    width: min(980px, 94vw);
+  }
+
   .story-card:last-child {
     grid-column: 1 / -1;
   }
@@ -972,6 +1134,10 @@ h2.is-visible {
     gap: 0.7rem;
   }
 
+  .event-context-table {
+    min-width: 42rem;
+  }
+
   .event-split.reverse {
     direction: ltr;
   }
@@ -988,6 +1154,13 @@ h2.is-visible {
   .footer-inner nav {
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  .home-watermark-band::before {
+    top: -6rem;
+    right: -15rem;
+    width: clamp(44rem, 140vw, 64rem);
+    height: clamp(54rem, 178vw, 82rem);
   }
 }
 
@@ -1007,5 +1180,12 @@ h2.is-visible {
 
   .events-grid {
     grid-template-columns: 1fr;
+  }
+
+  .home-watermark-band::before {
+    top: -4rem;
+    right: -16rem;
+    width: clamp(38rem, 168vw, 54rem);
+    height: clamp(48rem, 206vw, 70rem);
   }
 }
