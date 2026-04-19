@@ -24,7 +24,7 @@
       <section class="article-hero-link">
         <img id="article-hero-image" class="article-hero-image" src="images/historic3.png" alt="People feature hero image">
         <div class="article-hero-text">
-          <p id="article-hero-kicker" class="article-category-label">People Feature</p>
+          <p id="article-hero-kicker" class="article-category-label">Wed 22 Apr 2026 13.47 BST</p>
           <h1 id="event-hero-title">Loading article...</h1>
         </div>
       </section>
@@ -107,6 +107,11 @@
         });
 
         abstractEl.textContent = data.abstract;
+
+        const mainHeading = document.createElement('h2');
+        mainHeading.className = 'article-section-heading';
+        mainHeading.textContent = 'The Main Bit';
+        mainContent.appendChild(mainHeading);
 
         const introParagraph = document.createElement('p');
         introParagraph.className = 'article-intro-paragraph';
