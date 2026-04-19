@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="mainstyles.css">
   <script src="image-disclaimer.js" defer></script>
-  <title>EH News - People Feature</title>
+  <title>EH News - Students Feature</title>
 </head>
 <body>
   <header class="page-header">
@@ -13,7 +13,7 @@
       <a class="site-logo" href="index.html">EH News</a>
       <nav class="main-navigation">
         <a href="events.html">Events</a>
-        <a class="active" href="people.html">People</a>
+        <a class="active" href="students.html">Students</a>
         <a href="technology.html">Technology</a>
       </nav>
     </div>
@@ -22,7 +22,7 @@
   <main class="article-page-wrapper">
     <article class="article-container">
       <section class="article-hero-link">
-        <img id="article-hero-image" class="article-hero-image" src="images/historic3.png" alt="People feature hero image">
+        <img id="article-hero-image" class="article-hero-image" src="images/historic3.png" alt="Students feature hero image">
         <div class="article-hero-text">
           <p id="article-hero-kicker" class="article-category-label">Wed 22 Apr 2026 13.47 BST</p>
           <h1 id="event-hero-title">Loading article...</h1>
@@ -76,7 +76,7 @@
       <nav>
         <a href="index.html">Home</a>
         <a href="events.html">Events</a>
-        <a href="people.html">People</a>
+        <a href="students.html">Students</a>
         <a href="technology.html">Technology</a>
       </nav>
       <p class="copyright">&copy; 2026 EH News. All rights reserved.</p>
@@ -86,7 +86,7 @@
   <script>
     async function loadPeopleArticle() {
       try {
-        const response = await fetch('articles/people-article.json');
+        const response = await fetch('articles/students-article.json');
         if (!response.ok) {
           throw new Error('Failed to load article JSON');
         }
