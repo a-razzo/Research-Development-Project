@@ -339,6 +339,48 @@ main > section {
   margin-top: 0.3rem;
 }
 
+.fancy-links-section {
+  margin-top: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.fancy-links-section h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4.7vw, 3.2rem);
+  font-weight: 500;
+  line-height: 0.95;
+  margin: 0 0 1rem;
+}
+
+.fancy-links-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.fancy-links-nav a {
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  background: #fff;
+  box-shadow: var(--card-shadow);
+  padding: 0.7rem 1rem 0.75rem;
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.fancy-links-nav a:hover,
+.fancy-links-nav a:focus-visible {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 28px rgba(20, 26, 34, 0.12);
+  color: var(--nav-purple);
+  border-color: #b9a8e6;
+}
+
 .trending-section {
   position: relative;
   overflow: hidden;
@@ -1301,6 +1343,18 @@ img[src="images/newspaper.svg"] {
 
   .featured-story-wrapper {
     height: clamp(300px, 62vw, 460px);
+  }
+
+  .fancy-links-section {
+    margin-top: 0.5rem;
+  }
+
+  .fancy-links-nav {
+    gap: 0.65rem;
+  }
+
+  .fancy-links-nav a {
+    padding: 0.62rem 0.85rem 0.66rem;
   }
 
   .featured-story-title-overlay {
