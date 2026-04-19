@@ -1,0 +1,54 @@
+{
+	"title": "Tech Hub Careers Live Opens Recruitment Pathways for Computer Science Students",
+	"hero": {
+		"kicker": "Events Feature",
+		"image": {
+			"src": "images/historic4.png",
+			"alt": "Students networking with recruiters at a careers event"
+		}
+	},
+	"summary": {
+		"heading": "The Summary",
+		"headers": [
+			"Date",
+			"Attendees",
+			"Opportunities",
+			"Audience"
+		],
+		"rows": [
+			[
+				"12 June 2026 at the Tech Hub Innovation Hall.",
+				"Google, Microsoft, ARM, IBM, and other engineering-led employers.",
+				"Summer placements, graduate software engineer routes, and year-in-industry pipelines.",
+				"Computer Science, Cyber Security, and Data Science students."
+			]
+		]
+	},
+	"abstract": "Tech Hub Careers Live connects Edge Hill students with major employers, graduate opportunities, and practical advice on portfolios, interviews, and technical assessments.",
+	"intro": "The event is being positioned as more than a recruitment fair. Organisers want it to act as a practical bridge between <span class=\"highlighted-text\">university study</span> and <span class=\"highlighted-text\">graduate hiring</span>, with live advice on the portfolios, technical tasks, and communication skills employers now expect.",
+	"sections": [
+		{
+			"reverse": false,
+			"image": {
+				"src": "images/historic2.png",
+				"alt": "Recruiter speaking with students at a stand"
+			},
+			"paragraphs": [
+				"<span class=\"highlighted-text\">Google</span> will attend alongside employers recruiting for <span class=\"highlighted-text\">summer placements</span>, graduate software roles, and pathways in cloud, AI, cyber defence, and full-stack development. Students can expect direct advice on <span class=\"highlighted-text\">interview preparation</span>, portfolio quality, and technical assessments.",
+				"Recruitment staff will also explain how applicants can stand out through <span class=\"highlighted-text\">personal projects</span>, <span class=\"highlighted-text\">GitHub activity</span>, hackathon work, and evidence of collaboration. For students unsure where they fit, those conversations may be the most valuable part of the day."
+			]
+		},
+		{
+			"reverse": true,
+			"image": {
+				"src": "images/historic3.png",
+				"alt": "Students attending a careers panel at the Tech Hub"
+			},
+			"paragraphs": [
+				"Organisers say the goal is to turn <span class=\"highlighted-text\">networking</span> into real career progression. By the end of the day, students should leave with <span class=\"highlighted-text\">clear next steps</span>, employer contacts, and a stronger sense of how to position themselves in the current market.",
+				"Short speaker sessions will cover <span class=\"highlighted-text\">graduate pathways</span>, placement expectations, and how technical talent is assessed in live hiring cycles. For many students, that clarity and confidence may be what makes the event one of the most useful employability dates in the calendar."
+			]
+		}
+	]
+}
+

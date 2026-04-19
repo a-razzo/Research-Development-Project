@@ -4,13 +4,14 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="mainstyles.css">
+  <script src="image-disclaimer.js" defer></script>
   <title>EH News - Home</title>
 </head>
 <body>
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="index.html">EH News</a>
-      <nav class="top-nav">
+  <header class="page-header">
+    <div class="header-content">
+      <a class="site-logo" href="index.html">EH News</a>
+      <nav class="main-navigation">
         <a href="events.html">Events</a>
         <a href="people.html">People</a>
         <a href="technology.html">Technology</a>
@@ -19,89 +20,89 @@
   </header>
 
   <main>
-    <section class="hero">
-      <span class="hero-watermark">EH News</span>
-      <div class="hero-copy">
+    <section class="hero-section">
+      <span class="hero-background-text">EH News</span>
+      <div class="hero-text">
         <h1 class="hero-title">
           <span>Today on</span>
           <span>Edge Hill News</span>
         </h1>
         <p class="hero-summary">Edge Hill News strives to keep technology students up to date with the latest stories on events, department highlights, and feature articles on people and teachers in the department and what they have achieved.</p>
       </div>
-      <article class="hero-feature">
-        <h3 class="hero-feature-title">Today - Read me now!</h3>
+      <article class="hero-sidebar-card">
+        <h3 class="hero-card-label">Today - Read me now!</h3>
         <a class="hero-carousel-link" href="events-article.html">
-          <div class="hero-carousel" id="heroCarousel">
-            <div class="hero-carousel-track">
-              <img class="hero-slide" src="images/tech-careers-1.svg" alt="Tech Hub careers event slide one">
-              <img class="hero-slide" src="images/tech-careers-2.svg" alt="Tech Hub careers event slide two">
-              <img class="hero-slide" src="images/tech-careers-3.svg" alt="Tech Hub careers event slide three">
+          <div class="hero-image-carousel" id="heroCarousel">
+            <div class="carousel-slides-wrapper">
+              <img class="carousel-single-slide" src="images/tech-careers-1.svg" alt="Tech Hub careers event slide one">
+              <img class="carousel-single-slide" src="images/tech-careers-2.svg" alt="Tech Hub careers event slide two">
+              <img class="carousel-single-slide" src="images/tech-careers-3.svg" alt="Tech Hub careers event slide three">
             </div>
           </div>
         </a>
-        <div class="hero-progress">
-          <span class="hero-progress-bar" id="heroProgressBar"></span>
+        <div class="carousel-progress-bar-track">
+          <span class="carousel-progress-bar-fill" id="heroProgressBar"></span>
         </div>
-        <div class="hero-meta">
-          <p class="meta-label">NOW LIVE</p>
+        <div class="carousel-article-info">
+          <p class="card-meta-label">NOW LIVE</p>
           <h2>Tech Hub Careers Live</h2>
           <p>Placements and software engineering hiring</p>
         </div>
       </article>
     </section>
 
-    <section class="trending-carousel-section">
-      <span class="brand-watermark">EH</span>
-      <div class="section-heading trending-heading">
+    <section class="trending-section">
+      <span class="section-background-text">EH</span>
+      <div class="section-title-block trending-section-title">
         <h2>Editors Choice</h2>
-        <p class="editors-choice-intro">Even our editors have their favourites. This week, they have picked the story they most enjoyed reading and learning from, take a look!</p>
+        <p class="featured-section-description">Even our editors have their favourites. This week, they have picked the story they most enjoyed reading and learning from, take a look!</p>
       </div>
-      <div class="editors-choice-wrapper">
-        <div class="editors-image-wrapper">
+      <div class="featured-story-wrapper">
+        <div class="featured-story-image">
           <img src="images/historic4.png" alt="Editors choice featured article image">
         </div>
-        <div class="editors-header-wrapper">
-          <p class="editors-display-title">Take a peek!</p>
+        <div class="featured-story-title-overlay">
+          <p class="featured-story-title-text">Take a peek!</p>
         </div>
       </div>
     </section>
 
-    <div class="home-watermark-band">
-      <section class="poll-band">
-        <span class="poll-watermark">POLLS!<br>POLLS!<br>POLLS!<br>POLLS!</span>
+    <div class="home-background-band">
+      <section class="poll-section">
+        <span class="poll-background-text">POLLS!<br>POLLS!<br>POLLS!<br>POLLS!</span>
         <h2>Do you prefer Java or JavaScript?</h2>
-        <form class="poll-form" id="weeklyPollForm">
+        <form class="poll-vote-form" id="weeklyPollForm">
           <label><input type="radio" name="poll" value="java" required> Java</label>
           <label><input type="radio" name="poll" value="javascript"> JavaScript</label>
           <button type="submit" id="pollSubmitBtn">Submit Vote</button>
         </form>
-        <p class="poll-status" id="pollStatus"></p>
-        <div class="poll-results" id="pollResults"></div>
+        <p class="poll-status-message" id="pollStatus"></p>
+        <div class="poll-results-list" id="pollResults"></div>
       </section>
 
-      <section class="content-block">
-        <div class="section-heading between">
+      <section class="articles-section">
+        <div class="section-title-block between">
           <h2>Place holder title</h2>
           <a href="technology.html">View Archive &#8250;</a>
         </div>
-        <div class="article-grid three-up">
-          <article class="story-card">
+        <div class="article-card-grid three-column">
+          <article class="article-card">
             <img src="images/historic2.png" alt="Article about quantum systems">
-            <p class="kicker">place holder title</p>
+            <p class="article-category-tag">place holder title</p>
             <h3>place holder title</h3>
-            <p>placeholder description.</p>
+            <p>Article description placeholder</p>
           </article>
-          <article class="story-card">
+          <article class="article-card">
             <img src="images/historic3.png" alt="Article about synthetic intelligence">
-            <p class="kicker">place holder title</p>
+            <p class="article-category-tag">place holder title</p>
             <h3>place holder title</h3>
-            <p>placeholder description.</p>
+            <p>Article description placeholder</p>
           </article>
-          <article class="story-card">
+          <article class="article-card">
             <img src="images/historic4.png" alt="Article about cybersecurity">
-            <p class="kicker">place holder title</p>
+            <p class="article-category-tag">place holder title</p>
             <h3>place holder title</h3>
-            <p>placeholder description.</p>
+            <p>Article description placeholder</p>
           </article>
         </div>
       </section>
@@ -109,8 +110,8 @@
 
   </main>
 
-  <footer class="site-footer">
-    <div class="footer-inner">
+  <footer class="page-footer">
+    <div class="footer-content">
       <p class="footer-brand">EH News - Student News at Edge Hill University</p>
       <nav>
         <a href="index.html">Policy</a>
@@ -157,7 +158,7 @@
         return;
       }
 
-      const heroTrack = heroCarousel.querySelector('.hero-carousel-track');
+      const heroTrack = heroCarousel.querySelector('.carousel-slides-wrapper');
       const heroSlides = Array.from(heroTrack.children);
       const slideDuration = 5000;
       let heroIndex = 0;
@@ -242,7 +243,7 @@
 
         const visibleTotal = tally.java + tally.javascript;
         if (!visibleTotal) {
-          pollResults.innerHTML = '<p class="poll-empty">No votes yet. Be the first to vote.</p>';
+          pollResults.innerHTML = '<p class="poll-no-votes-message">No votes yet. Be the first to vote.</p>';
           return;
         }
 
@@ -251,12 +252,12 @@
           const percent = visibleTotal > 0 ? (votes / visibleTotal) * 100 : 0;
 
           return (
-            '<div class="poll-result-item">' +
-              '<div class="poll-result-head">' +
+            '<div class="poll-result-row">' +
+              '<div class="poll-result-label-row">' +
                 '<span>' + optionLabels[key] + '</span>' +
                 '<span>' + votes + ' vote' + (votes === 1 ? '' : 's') + ' (' + percent.toFixed(1) + '%)</span>' +
               '</div>' +
-              '<div class="poll-bar-track"><span class="poll-bar-fill" style="width:' + percent + '%"></span></div>' +
+              '<div class="poll-bar-background"><span class="poll-bar-progress" style="width:' + percent + '%"></span></div>' +
             '</div>'
           );
         }).join('');
@@ -330,3 +331,4 @@
   </script>
 </body>
 </html>
+

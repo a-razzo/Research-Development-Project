@@ -1,0 +1,54 @@
+{
+  "title": "Edge Hill Student Daniel Heads to Washington DC for Global AI Computing Final",
+  "hero": {
+    "kicker": "People Feature",
+    "image": {
+      "src": "images/historic3.png",
+      "alt": "Daniel reviewing his project notebooks before leaving for Washington DC"
+    }
+  },
+  "summary": {
+    "heading": "The Summary",
+    "headers": [
+      "Student",
+      "Destination",
+      "Competition",
+      "Project Focus"
+    ],
+    "rows": [
+      [
+        "Daniel, BSc Computer Science (Year 3)",
+        "Washington DC, USA, for a two-week programme",
+        "Global AI Computing Competition with teams from universities worldwide",
+        "Applied AI system developed in his Research and Development Project"
+      ]
+    ]
+  },
+  "abstract": "Edge Hill student Daniel will represent his course in Washington DC after his third-year Research and Development Project was selected for a two-week global AI computing competition.",
+  "intro": "What started as a final-year challenge has quickly become an international opportunity. Daniel's <span class=\"highlighted-text\">Research and Development Project</span> has earned him a place in a <span class=\"highlighted-text\">global AI computing competition</span>, where he will spend two weeks in Washington DC presenting, testing, and refining his work alongside student teams from across the world.",
+  "sections": [
+    {
+      "reverse": false,
+      "image": {
+        "src": "images/historic2.png",
+        "alt": "Student developer preparing AI model outputs on a laptop"
+      },
+      "paragraphs": [
+        "Daniel's project focuses on building an AI workflow that can process complex data quickly while still keeping decisions understandable to non-specialist users. Rather than only chasing model accuracy, his approach balances <span class=\"highlighted-text\">performance</span>, <span class=\"highlighted-text\">explainability</span>, and practical deployment, which judges said made it stand out from typical student prototypes.",
+        "Over the last academic year, he has iterated on the system through supervisor feedback, user testing, and repeated benchmarking sessions. That development cycle turned the project into more than a coursework submission: it became a serious piece of technical work with clear real-world applications in sectors where transparent AI decisions are essential."
+      ]
+    },
+    {
+      "reverse": true,
+      "image": {
+        "src": "images/historic4.png",
+        "alt": "Delegates networking at an international computing event"
+      },
+      "paragraphs": [
+        "The Washington DC programme combines live judging rounds, technical mentoring, and collaboration sessions with other finalists. Daniel will present his architecture choices, defend design trade-offs, and run demonstrations under competition conditions. The two-week format gives participants time to improve their systems between rounds and respond directly to expert critique.",
+        "For Daniel, the trip is both a personal milestone and a reflection of the work being produced at Edge Hill's computing programmes. He hopes to return with stronger industry links, sharper research direction, and new ideas for postgraduate study. For current students watching his progress, it is also a clear message that ambitious project work can open doors far beyond the classroom."
+      ]
+    }
+  ]
+}
+

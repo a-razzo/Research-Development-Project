@@ -5,15 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="mainstyles.css">
   <script src="image-disclaimer.js" defer></script>
-  <title>EH News - Tech Hub Careers Live</title>
+  <title>EH News - People Feature</title>
 </head>
 <body>
   <header class="page-header">
     <div class="header-content">
       <a class="site-logo" href="index.html">EH News</a>
       <nav class="main-navigation">
-        <a class="active" href="events.html">Events</a>
-        <a href="people.html">People</a>
+        <a href="events.html">Events</a>
+        <a class="active" href="people.html">People</a>
         <a href="technology.html">Technology</a>
       </nav>
     </div>
@@ -22,9 +22,9 @@
   <main class="article-page-wrapper">
     <article class="article-container">
       <section class="article-hero-link">
-        <img id="article-hero-image" class="article-hero-image" src="images/historic4.png" alt="Event hero image">
+        <img id="article-hero-image" class="article-hero-image" src="images/historic3.png" alt="People feature hero image">
         <div class="article-hero-text">
-          <p id="article-hero-kicker" class="article-category-label">Events Feature</p>
+          <p id="article-hero-kicker" class="article-category-label">People Feature</p>
           <h1 id="event-hero-title">Loading article...</h1>
         </div>
       </section>
@@ -60,9 +60,9 @@
   </footer>
 
   <script>
-    async function loadEventArticle() {
+    async function loadPeopleArticle() {
       try {
-        const response = await fetch('articles/events-article.json');
+        const response = await fetch('articles/people-article.json');
         if (!response.ok) {
           throw new Error('Failed to load article JSON');
         }
@@ -143,7 +143,7 @@
       }
     }
 
-    loadEventArticle();
+    loadPeopleArticle();
   </script>
 </body>
 </html>
