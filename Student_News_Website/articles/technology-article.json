@@ -34,8 +34,7 @@
 				"alt": "A Unity editor viewport showing an AI-generated game level"
 			},
 			"paragraphs": [
-				"The most talked-about addition is <span class=\"highlighted-text\">AI-assisted game design and level generation</span>. Using a natural language prompt inside the editor, developers can describe a scene — a foggy medieval village, a procedural dungeon with locked rooms, a sci-fi corridor with environmental hazards — and Unity's AI tooling will generate a <span class=\"highlighted-text\">rough but playable layout</span> as a starting point. It does not replace design thinking, but it dramatically reduces the blank-canvas problem that slows down solo developers and student teams working to deadlines.",
-				"For CS students building games as part of coursework or personal portfolios, this is a significant time-saver. The generated levels can be edited, scripted, and iterated on just like any hand-crafted scene. Students are encouraged to treat AI generation as a <span class=\"highlighted-text\">rapid prototyping tool</span> rather than a finished product — the real learning still happens in the refinement."
+				"The headline addition is <span class=\"highlighted-text\">AI-assisted level generation</span> — describe a scene in plain language and Unity builds a rough, playable layout as a starting point. It is not a replacement for design thinking, but it eliminates the blank-canvas problem for <span class=\"highlighted-text\">student teams</span> racing against coursework deadlines, letting them spend more time scripting and refining than laying out geometry."
 			]
 		},
 		{
@@ -45,8 +44,7 @@
 				"alt": "A Unity scene demonstrating real-time ray traced lighting and reflections"
 			},
 			"paragraphs": [
-				"Unity 2026 also ships with a fully integrated <span class=\"highlighted-text\">real-time ray tracing</span> pipeline, bringing accurate light bounces, soft shadows, and physically correct reflections to projects without requiring bespoke rendering code. Paired with the <span class=\"highlighted-text\">enhanced lighting system</span> — which includes volumetric fog, area light improvements, and a new global illumination solver — even a student project can achieve visuals that previously demanded AAA-level rendering budgets.",
-				"The third major pillar of the update is the <span class=\"highlighted-text\">improved NPC AI framework</span>. Unity's new behaviour graph system replaces the older NavMesh-only approach with a modular, node-based tool that lets developers define perception, memory, and decision-making for non-player characters without writing low-level pathfinding code from scratch. Students can build NPCs that <span class=\"highlighted-text\">react to sound, track players across rooms</span>, and switch between patrol, investigation, and chase states using a visual graph — making it practical to ship believable enemy and companion behaviour even in a short project cycle."
+				"<span class=\"highlighted-text\">Real-time ray tracing</span> and a rebuilt lighting system — volumetric fog, improved area lights, a new global illumination solver — mean student projects can now hit visuals that once required a AAA budget. Alongside that, the new <span class=\"highlighted-text\">NPC behaviour graph</span> replaces the old NavMesh-only approach with a visual node tool, letting students build enemies that perceive, remember, and react without writing low-level pathfinding code from scratch."
 			]
 		}
 	]

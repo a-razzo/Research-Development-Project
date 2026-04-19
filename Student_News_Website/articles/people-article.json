@@ -34,8 +34,7 @@
         "alt": "Student developer preparing AI model outputs on a laptop"
       },
       "paragraphs": [
-        "Daniel's project focuses on building an AI workflow that can process complex data quickly while still keeping decisions understandable to non-specialist users. Rather than only chasing model accuracy, his approach balances <span class=\"highlighted-text\">performance</span>, <span class=\"highlighted-text\">explainability</span>, and practical deployment, which judges said made it stand out from typical student prototypes.",
-        "Over the last academic year, he has iterated on the system through supervisor feedback, user testing, and repeated benchmarking sessions. That development cycle turned the project into more than a coursework submission: it became a serious piece of technical work with clear real-world applications in sectors where transparent AI decisions are essential."
+        "Daniel's project builds an AI workflow that balances <span class=\"highlighted-text\">performance</span>, <span class=\"highlighted-text\">explainability</span>, and practical deployment — a combination judges said made it stand out. After a year of supervisor feedback, user testing, and benchmarking, it grew from a coursework submission into a serious piece of technical work with real-world applications in sectors where transparent AI decisions matter."
       ]
     },
     {
@@ -45,8 +44,7 @@
         "alt": "Delegates networking at an international computing event"
       },
       "paragraphs": [
-        "The Washington DC programme combines live judging rounds, technical mentoring, and collaboration sessions with other finalists. Daniel will present his architecture choices, defend design trade-offs, and run demonstrations under competition conditions. The two-week format gives participants time to improve their systems between rounds and respond directly to expert critique.",
-        "For Daniel, the trip is both a personal milestone and a reflection of the work being produced at Edge Hill's computing programmes. He hopes to return with stronger industry links, sharper research direction, and new ideas for postgraduate study. For current students watching his progress, it is also a clear message that ambitious project work can open doors far beyond the classroom."
+        "The Washington DC programme combines <span class=\"highlighted-text\">live judging rounds</span>, technical mentoring, and collaboration with finalists from across the world. Daniel will present his architecture, defend his design choices, and run live demonstrations. For students watching his progress, it is a clear message that <span class=\"highlighted-text\">ambitious project work</span> can open doors far beyond the classroom."
       ]
     }
   ]
