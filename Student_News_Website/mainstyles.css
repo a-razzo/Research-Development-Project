@@ -753,7 +753,8 @@ img[src="images/newspaper.svg"] {
 .events-page-heading,
 .events-top-story,
 .events-two-column,
-.events-small-grid {
+.events-small-grid,
+.events-related-picks {
   position: relative;
   z-index: 1;
 }
@@ -856,6 +857,67 @@ img[src="images/newspaper.svg"] {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
+}
+
+.events-related-picks {
+  margin-top: 2.3rem;
+}
+
+.article-related-picks {
+  width: calc(100% - 3rem);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.events-related-heading {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 600;
+  line-height: 1;
+  margin: 0 0 1rem;
+  opacity: 1;
+  transform: none;
+}
+
+.events-two-column-related {
+  margin-bottom: 0;
+}
+
+.events-two-column-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.events-two-column-link:hover .events-two-column-card,
+.events-two-column-link:focus-visible .events-two-column-card {
+  transform: translateY(-4px);
+  box-shadow: 0 22px 34px rgba(20, 26, 34, 0.12);
+}
+
+.events-two-column-link .events-two-column-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.events-related-card-content {
+  min-height: 11.6rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.events-related-card-tag {
+  margin: 1.7rem 0.95rem 0.2rem;
+  padding-top: 0.35rem;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  font-family: "Manrope", "Segoe UI", sans-serif;
+  font-weight: 700;
+}
+
+.events-two-column-related .events-two-column-card h2 {
+  margin-bottom: 1rem;
 }
 
 .small-grid-item {
