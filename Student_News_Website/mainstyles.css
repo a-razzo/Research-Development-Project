@@ -1172,10 +1172,18 @@ img[src="images/newspaper.svg"] {
   .hero-section {
     grid-template-columns: 1fr;
     gap: 1.6rem;
+    justify-items: center;
+    text-align: center;
   }
 
   .hero-sidebar-card {
     max-width: 520px;
+    width: 100%;
+  }
+
+  .hero-summary {
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .article-card-grid.three-column {
@@ -1300,6 +1308,13 @@ img[src="images/newspaper.svg"] {
     left: 0.9rem;
     top: 0.9rem;
     font-size: clamp(2.6rem, 14.5vw, 3.9rem);
+  }
+}
+
+@media (hover: none) {
+  .small-grid-item-title {
+    transform: translateY(0);
+    opacity: 1;
   }
 }
 
