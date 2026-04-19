@@ -465,8 +465,8 @@ h2.is-visible {
   position: absolute;
   right: 4.4rem;
   bottom: 2rem;
-  width: min(32vw, 380px);
-  height: clamp(140px, 16vw, 210px);
+  width: min(42vw, 440px);
+  height: auto;
   overflow: visible;
   display: flex;
   align-items: center;
@@ -481,15 +481,17 @@ h2.is-visible {
   position: relative;
   bottom: 0;
   margin: 0;
-  display: inline-block;
+  display: block;
+  width: 100%;
   font-family: "Cormorant Garamond", serif;
-  font-size: clamp(3rem, 8.4vw, 6rem);
-  line-height: 1;
-  padding: 0.2em 0.52em 0.24em;
+  font-size: clamp(1.45rem, 2.8vw, 2.7rem);
+  line-height: 1.08;
+  padding: 0.42em 0.6em 0.48em;
   color: #fff;
   text-transform: none;
   text-align: center;
   letter-spacing: 0.01em;
+  text-wrap: balance;
   background: rgba(20, 26, 34, 0.35);
   border-radius: 8px;
   text-shadow: 0 4px 22px rgba(20, 26, 34, 0.45);
@@ -680,6 +682,12 @@ h2.is-visible {
   border: 1px solid #cad3da;
 }
 
+img[src="images/newspaper.svg"] {
+  object-fit: contain !important;
+  padding: 15%;
+  filter: invert(50%);
+}
+
 .article-category-tag {
   margin-top: 0.7rem;
   font-size: 0.6rem;
@@ -826,6 +834,9 @@ h2.is-visible {
   font-weight: 500;
   line-height: 0.95;
   margin: 0.8rem 0.95rem 0.35rem;
+  color: var(--ink);
+  opacity: 1;
+  transform: none;
 }
 
 .events-two-column-card p {
@@ -1207,8 +1218,8 @@ h2.is-visible {
   .featured-story-title-overlay {
     right: 1rem;
     bottom: 1rem;
-    width: min(48vw, 300px);
-    height: clamp(110px, 18vw, 170px);
+    width: min(72vw, 320px);
+    height: auto;
   }
 
   .article-card-grid.three-column {

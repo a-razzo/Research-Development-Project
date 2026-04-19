@@ -1,10 +1,10 @@
 {
-	"title": "Tech Hub Careers Live Opens Recruitment Pathways for Computer Science Students",
+	"title": "Tech Hub Careers June 12th: Where Students Get Hired",
 	"hero": {
 		"kicker": "Events Feature",
 		"image": {
-			"src": "images/historic4.png",
-			"alt": "Students networking with recruiters at a careers event"
+			"src": "images/tech-careers-1.svg",
+			"alt": "Promotional graphic for Tech Hub Careers Live"
 		}
 	},
 	"summary": {
@@ -30,8 +30,8 @@
 		{
 			"reverse": false,
 			"image": {
-				"src": "images/historic2.png",
-				"alt": "Recruiter speaking with students at a stand"
+				"src": "images/tech-careers-2.svg",
+				"alt": "Tech Hub Careers Live graphic highlighting employers and student opportunities"
 			},
 			"paragraphs": [
 				"<span class=\"highlighted-text\">Google</span> will attend alongside employers recruiting for <span class=\"highlighted-text\">summer placements</span>, graduate software roles, and pathways in cloud, AI, cyber defence, and full-stack development. Students can expect direct advice on <span class=\"highlighted-text\">interview preparation</span>, portfolio quality, and technical assessments.",
@@ -41,8 +41,8 @@
 		{
 			"reverse": true,
 			"image": {
-				"src": "images/historic3.png",
-				"alt": "Students attending a careers panel at the Tech Hub"
+				"src": "images/tech-careers-3.svg",
+				"alt": "Tech Hub Careers Live promotional slide about placements and graduate roles"
 			},
 			"paragraphs": [
 				"Organisers say the goal is to turn <span class=\"highlighted-text\">networking</span> into real career progression. By the end of the day, students should leave with <span class=\"highlighted-text\">clear next steps</span>, employer contacts, and a stronger sense of how to position themselves in the current market.",
