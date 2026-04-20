@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="mainstyles.css">
+  <title>EH News - Tech Hub Careers Live</title>
+</head>
+<body>
+  <header class="page-header">
+    <div class="header-content">
+      <a class="site-logo" href="index.html">EH News</a>
+      <nav class="main-navigation">
+        <a class="active" href="events.html">Events</a>
+        <a href="students.html">Students</a>
+        <a href="technology.html">Technology</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="article-page-wrapper">
+    <article class="article-container">
+      <section class="article-hero-link">
+        <span class="ai-disclaimer-wrap">
+          <img id="article-hero-image" class="article-hero-image" src="images/historic4.png" alt="Event hero image">
+          <span class="ai-disclaimer-label">This Image is AI Generated</span>
+        </span>
+        <div class="article-hero-text">
+          <p id="article-hero-kicker" class="article-category-label">Mon 20 Apr 2026 09.14 BST</p>
+          <h1 id="event-hero-title">Loading article...</h1>
+        </div>
+      </section>
+
+      <div class="article-body">
+        <h2 id="event-summary-heading" class="article-info-table-title">The Summary</h2>
+
+        <div class="article-info-table-wrapper">
+          <table class="article-info-table">
+            <thead id="event-summary-head"></thead>
+            <tbody id="event-summary-body"></tbody>
+          </table>
+        </div>
+
+        <p id="article-summary" class="article-summary"></p>
+
+        <section id="article-main-content" class="article-main-content"></section>
+      </div>
+    </article>
+
+    <section class="events-related-picks article-related-picks">
+      <h2 class="events-related-heading">Similar articles</h2>
+      <div class="events-two-column events-two-column-related">
+        <a class="events-two-column-link" href="students-article.html">
+          <article class="events-two-column-card">
+            <span class="ai-disclaimer-wrap">
+              <img src="images/historic3.png" alt="Daniel reviewing his project notebooks before leaving for Washington DC">
+              <span class="ai-disclaimer-label">This Image is AI Generated</span>
+            </span>
+            <div class="events-related-card-content">
+              <p class="events-related-card-tag">Students</p>
+              <h2>Edge Hill Student Takes on DC AI Final</h2>
+            </div>
+          </article>
+        </a>
+        <a class="events-two-column-link" href="technology-article.html">
+          <article class="events-two-column-card">
+            <span class="ai-disclaimer-wrap">
+              <img src="images/technology-article-img-1.svg" alt="A game developer working in the Unity editor with a 3D scene open">
+              <span class="ai-disclaimer-label">This Image is AI Generated</span>
+            </span>
+            <div class="events-related-card-content">
+              <p class="events-related-card-tag">Technology</p>
+              <h2>Unity 2026: Smarter, Sharper, Faster</h2>
+            </div>
+          </article>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <div class="footer-content">
+      <p class="footer-brand">EH News - Edge Hill News</p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="students.html">Students</a>
+        <a href="technology.html">Technology</a>
+      </nav>
+      <p class="copyright">&copy; 2026 EH News. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    async function loadEventArticle() {
+      try {
+        const response = await fetch('articles/events-article.json');
+        if (!response.ok) {
+          throw new Error('Failed to load article JSON');
+        }
+
+        const data = await response.json();
+
+        document.title = `EH News - ${data.title}`;
+
+        const heroImage = document.getElementById('article-hero-image');
+        const heroKicker = document.getElementById('article-hero-kicker');
+        const heroTitle = document.getElementById('event-hero-title');
+        const summaryHeading = document.getElementById('event-summary-heading');
+        const summaryHead = document.getElementById('event-summary-head');
+        const summaryBody = document.getElementById('event-summary-body');
+        const abstractEl = document.getElementById('article-summary');
+        const mainContent = document.getElementById('article-main-content');
+
+        heroImage.src = data.hero.image.src;
+        heroImage.alt = data.hero.image.alt;
+        heroKicker.textContent = data.hero.kicker;
+        heroTitle.textContent = data.title;
+
+        summaryHeading.textContent = data.summary.heading;
+
+        const headerRow = document.createElement('tr');
+        data.summary.headers.forEach((headerText) => {
+          const th = document.createElement('th');
+          th.scope = 'col';
+          th.textContent = headerText;
+          headerRow.appendChild(th);
+        });
+        summaryHead.appendChild(headerRow);
+
+        data.summary.rows.forEach((rowData) => {
+          const tr = document.createElement('tr');
+          rowData.forEach((cellText) => {
+            const td = document.createElement('td');
+            td.textContent = cellText;
+            tr.appendChild(td);
+          });
+          summaryBody.appendChild(tr);
+        });
+
+        abstractEl.textContent = data.abstract;
+
+        const mainHeading = document.createElement('h2');
+        mainHeading.className = 'article-section-heading';
+        mainHeading.textContent = 'The Main Bit';
+        mainContent.appendChild(mainHeading);
+
+        const introParagraph = document.createElement('p');
+        introParagraph.className = 'article-intro-paragraph';
+        introParagraph.innerHTML = data.intro;
+        mainContent.appendChild(introParagraph);
+
+        data.sections.forEach((section) => {
+          const split = document.createElement('div');
+          split.className = section.reverse ? 'article-split-row reverse' : 'article-split-row';
+
+          const figure = document.createElement('figure');
+          figure.className = 'article-inline-image';
+
+          const image = document.createElement('img');
+          image.src = section.image.src;
+          image.alt = section.image.alt;
+          figure.appendChild(image);
+
+          const textBox = document.createElement('div');
+          textBox.className = 'article-text-box';
+
+          section.paragraphs.forEach((paragraphHtml) => {
+            const paragraph = document.createElement('p');
+            paragraph.innerHTML = paragraphHtml;
+            textBox.appendChild(paragraph);
+          });
+
+          split.appendChild(figure);
+          split.appendChild(textBox);
+          mainContent.appendChild(split);
+        });
+      } catch (error) {
+        document.getElementById('event-hero-title').textContent = 'Unable to load article content.';
+      }
+    }
+
+    loadEventArticle();
+  </script>
+</body>
+</html>
+

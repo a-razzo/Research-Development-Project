@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   poll-backend:
     build:
@@ -11,8 +9,8 @@ services:
     volumes:
       - poll-data:/app/data
     environment:
-      - NODE_ENV=production
-      - PORT=5000
+      NODE_ENV: production
+      PORT: 5000
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost:5000/health"]
@@ -20,6 +18,30 @@ services:
       timeout: 10s
       retries: 3
       start_period: 5s
+
+  student-news-website:
+    image: nginx:alpine
+    container_name: student-news-website
+    ports:
+      - "8080:80"
+    volumes:
+      - ./Student_News_Website:/usr/share/nginx/html:ro
+    depends_on:
+      poll-backend:
+        condition: service_healthy
+    restart: unless-stopped
+
+  student-news-website-no-animations:
+    image: nginx:alpine
+    container_name: student-news-website-no-animations
+    ports:
+      - "8081:80"
+    volumes:
+      - ./Student_News_Website_No_Animations:/usr/share/nginx/html:ro
+    depends_on:
+      poll-backend:
+        condition: service_healthy
+    restart: unless-stopped
 
 volumes:
   poll-data:

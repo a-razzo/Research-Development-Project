@@ -223,7 +223,8 @@
         return;
       }
 
-      const API_BASE_URL = 'http://localhost:5000';
+      const apiHost = window.location.hostname || 'localhost';
+      const API_BASE_URL = 'http://' + apiHost + ':5000';
       const POLL_ID = 'main-poll';
       const VOTER_ID_KEY = 'eh-news-voter-id';
       const VOTED_KEY = 'eh-news-voted-' + POLL_ID;
