@@ -1,0 +1,51 @@
+{
+	"title": "Unity 2026: Smarter, Sharper, Faster",
+	"hero": {
+		"kicker": "Thu 23 Apr 2026 18.05 BST",
+		"image": {
+			"src": "images/technology-article-img-1.svg",
+			"alt": "A game developer working in the Unity editor with a 3D scene open"
+		}
+	},
+	"summary": {
+		"heading": "The Summary",
+		"headers": [
+			"Release",
+			"Headline Features",
+			"Platform Support",
+			"Audience"
+		],
+		"rows": [
+			[
+				"Early 2026.",
+				"AI-assisted design tools, real-time ray tracing, and overhauled NPC behaviour systems.",
+				"PC, console, mobile, and extended reality platforms.",
+				"Game developers, CS students, and interactive media designers."
+			]
+		]
+	},
+	"abstract": "Unity 2026 is the most ambitious update the engine has seen in years, shipping AI-powered level generation, real-time ray tracing with enhanced lighting, and a rebuilt NPC AI system — giving students a professional-grade toolkit to create with from day one.",
+	"intro": "Unity has always positioned itself as the game engine for developers of every skill level, but the 2026 update marks a clear shift in ambition. The team has pushed <span class=\"highlighted-text\">artificial intelligence</span> to the centre of the creation workflow, meaning students can now go from a rough concept to a <span class=\"highlighted-text\">fully lit, populated scene</span> in a fraction of the time it previously took.",
+	"sections": [
+		{
+			"reverse": false,
+			"image": {
+				"src": "images/technology-article-img-2.svg",
+				"alt": "A Unity editor viewport showing an AI-generated game level"
+			},
+			"paragraphs": [
+				"The headline addition is <span class=\"highlighted-text\">AI-assisted level generation</span> — describe a scene in plain language and Unity builds a rough, playable layout as a starting point. It is not a replacement for design thinking, but it eliminates the blank-canvas problem for <span class=\"highlighted-text\">student teams</span> racing against coursework deadlines, letting them spend more time scripting and refining than laying out geometry."
+			]
+		},
+		{
+			"reverse": true,
+			"image": {
+				"src": "images/technology-article-img-3.svg",
+				"alt": "A Unity scene demonstrating real-time ray traced lighting and reflections"
+			},
+			"paragraphs": [
+				"<span class=\"highlighted-text\">Real-time ray tracing</span> and a rebuilt lighting system — volumetric fog, improved area lights, a new global illumination solver — mean student projects can now hit visuals that once required a AAA budget. Alongside that, the new <span class=\"highlighted-text\">NPC behaviour graph</span> replaces the old NavMesh-only approach with a visual node tool, letting students build enemies that perceive, remember, and react without writing low-level pathfinding code from scratch."
+			]
+		}
+	]
+}

@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="mainstyles.css">
+  <title>EH News - Tech Article</title>
+</head>
+<body>
+  <header class="site-header">
+    <div class="site-header-content">
+      <a class="site-logo" href="index.html">EH News</a>
+      <nav class="site-navigation">
+        <a href="events.html">Events</a>
+        <a href="students.html">Students</a>
+        <a class="active" href="technology.html">Technology</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="story-page">
+    <article class="story-article">
+      <section class="story-header">
+        <span class="ai-disclaimer-wrap"><img id="article-hero-image" class="story-header-image" src="images/student-article-img-3.svg" alt="Event hero image">  <span class="ai-disclaimer-label">This Image is AI Generated</span></span>
+        <div class="story-header-text">
+          <p id="article-hero-kicker" class="story-date">Mon 20 Apr 2026 09.14 BST</p>
+          <h1 id="event-hero-title">Article Content here...</h1>
+        </div>
+      </section>
+
+      <div class="story-body">
+        <h2 id="event-summary-heading" class="summary-heading">The Summary</h2>
+
+        <div class="summary-table-wrap">
+          <table class="summary-table">
+            <thead id="event-summary-head"></thead>
+            <tbody id="event-summary-body"></tbody>
+          </table>
+        </div>
+
+        <p id="article-summary" class="story-summary"></p>
+
+        <section id="article-main-content" class="story-content"></section>
+      </div>
+    </article>
+    
+    <section class="highlighted-articles">
+      <h2 class="similar-article-title">See Similar Articles</h2>
+      <a class="similar-article-link" href="events-article.html">
+        <article>
+          <span class="ai-disclaimer-wrap"><img src="images/tech-careers-1.svg" alt="A promotional image for the Tech Hub Careers event showing a group of students and recruiters talking at a careers fair">  <span class="ai-disclaimer-label">This Image is AI Generated</span></span>
+          <h2>Tech Hub Careers June 12th: Where Students Get Hired</h2>
+          <p>Discover the opportunities for students at the upcoming Tech Hub Careers event.</p>
+        </article>
+      </a>
+      <a class="similar-article-link" href="students-article.html">
+        <article>
+          <span class="ai-disclaimer-wrap"><img src="images/student-article-img-2.svg" alt="Daniel reviewing his project notebooks before leaving for Washington DC">  <span class="ai-disclaimer-label">This Image is AI Generated</span></span>
+          <h2>Edge Hill Student Takes on DC AI Final</h2>
+          <p>Read how Daniel's R&D Project earned him a place in an international AI final.</p>
+        </article>
+      </a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="site-footer-content">
+      <p>EH News - Technology News at Edge Hill University</p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="students.html">Students</a>
+        <a href="technology.html">Technology</a>
+      </nav>
+      <p>&copy; 2026 EH News. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- Script to load article content from the locally stored JSON file. NOTE: The creation of this script was assisted by Claude.ai. -->
+  <script>
+    fetch("./articles/technology-article.json")
+      .then((response) => response.json())
+      .then((data) => {
+        document.title = `EH News - ${data.title}`;
+
+        document.getElementById("article-hero-image").src = data.hero.image.src;
+        document.getElementById("article-hero-image").alt = data.hero.image.alt;
+        document.getElementById("article-hero-kicker").textContent = data.hero.kicker;
+        document.getElementById("event-hero-title").textContent = data.title;
+
+        document.getElementById("event-summary-heading").textContent = data.summary.heading;
+        document.getElementById("event-summary-head").innerHTML =
+          `<tr>${data.summary.headers.map((header) => `<th scope="col">${header}</th>`).join("")}</tr>`;
+        document.getElementById("event-summary-body").innerHTML =
+          data.summary.rows.map((row) => `<tr>${row.map((cell) => `<td>${cell}</td>`).join("")}</tr>`).join("");
+
+        document.getElementById("article-summary").textContent = data.abstract;
+
+        document.getElementById("article-main-content").innerHTML = `
+          <h2 class="story-section-title">The Main Bit</h2>
+          <p class="story-intro">${data.intro}</p>
+          ${data.sections.map((section) => `
+            <div class="story-split ${section.reverse ? "reverse-order" : ""}">
+              <figure class="story-inline-image">
+                <span class="ai-disclaimer-wrap"><img src="${section.image.src}" alt="${section.image.alt}"><span class="ai-disclaimer-label">This Image is AI Generated</span></span>
+              </figure>
+              <div class="story-text-box">
+                ${section.paragraphs.map((paragraph) => `<p>${paragraph}</p>`).join("")}
+              </div>
+            </div>
+          `).join("")}
+        `;
+      })
+      .catch(() => {
+        document.getElementById("event-hero-title").textContent = "Unable to load article content.";
+      });
+  </script>
+</body>
+</html>

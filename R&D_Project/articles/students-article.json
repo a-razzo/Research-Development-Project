@@ -1,0 +1,51 @@
+{
+  "title": "Edge Hill Student Takes on DC AI Final",
+  "hero": {
+    "kicker": "Wed 22 Apr 2026 13.47 BST",
+    "image": {
+      "src": "images/student-article-img-2.svg",
+      "alt": "Daniel reviewing his project notebooks before leaving for Washington DC"
+    }
+  },
+  "summary": {
+    "heading": "The Summary",
+    "headers": [
+      "Student",
+      "Destination",
+      "Competition",
+      "Project Focus"
+    ],
+    "rows": [
+      [
+        "Daniel, BSc Computer Science (Year 3)",
+        "Washington DC, USA, for a two-week programme",
+        "Global AI Computing Competition with teams from universities worldwide",
+        "Applied AI system developed in his Research and Development Project"
+      ]
+    ]
+  },
+  "abstract": "Edge Hill student Daniel will represent his course in Washington DC after his third-year Research and Development Project was selected for a two-week global AI computing competition.",
+  "intro": "What started as a final-year challenge has quickly become an international opportunity. Daniel's <span class=\"highlighted-text\">Research and Development Project</span> has earned him a place in a <span class=\"highlighted-text\">global AI computing competition</span>, where he will spend two weeks in Washington DC presenting, testing, and refining his work alongside student teams from across the world.",
+  "sections": [
+    {
+      "reverse": false,
+      "image": {
+        "src": "images/student-article-img-1.svg",
+        "alt": "Student developer preparing AI model outputs on a laptop"
+      },
+      "paragraphs": [
+        "Daniel's project builds an AI workflow that balances <span class=\"highlighted-text\">performance</span>, <span class=\"highlighted-text\">explainability</span>, and practical deployment — a combination judges said made it stand out. After a year of supervisor feedback, user testing, and benchmarking, it grew from a coursework submission into a serious piece of technical work with real-world applications in sectors where transparent AI decisions matter."
+      ]
+    },
+    {
+      "reverse": true,
+      "image": {
+        "src": "images/student-article-img-3.svg",
+        "alt": "Delegates networking at an international computing event"
+      },
+      "paragraphs": [
+        "The Washington DC programme combines <span class=\"highlighted-text\">live judging rounds</span>, technical mentoring, and collaboration with finalists from across the world. Daniel will present his architecture, defend his design choices, and run live demonstrations. For students watching his progress, it is a clear message that <span class=\"highlighted-text\">ambitious project work</span> can open doors far beyond the classroom."
+      ]
+    }
+  ]
+}
