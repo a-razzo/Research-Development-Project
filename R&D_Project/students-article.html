@@ -7,6 +7,7 @@
   <title>EH News - Student Article</title>
 </head>
 <body>
+  <!-- Site header and main navigation -->
   <header class="site-header">
     <div class="site-header-content">
       <a class="site-logo" href="index.html">EH News</a>
@@ -18,16 +19,23 @@
     </div>
   </header>
 
+  <!-- Main article page content -->
   <main class="story-page">
+    <!-- Brief content disclaimer -->
+    <p>DISCLAIMER: This article is not based on real events, any resemblance to actual events or persons is purely coincidental.</p>
+    <!-- Primary article content block -->
     <article class="story-article">
+      <!-- Article hero image, author, date, and title -->
       <section class="story-header">
         <span class="ai-disclaimer-wrap"><img id="article-hero-image" class="story-header-image" src="images/student-article-img-3.svg" alt="Event hero image">  <span class="ai-disclaimer-label">This Image is AI Generated</span></span>
         <div class="story-header-text">
+          <p id="article-author" class="story-author">Author: </p>
           <p id="article-hero-kicker" class="story-date">Mon 20 Apr 2026 09.14 BST</p>
           <h1 id="event-hero-title">Article Content here...</h1>
         </div>
       </section>
 
+      <!-- Article summary table and main story sections -->
       <div class="story-body">
         <h2 id="event-summary-heading" class="summary-heading">The Summary</h2>
 
@@ -44,6 +52,7 @@
       </div>
     </article>
     
+    <!-- Related article suggestions -->
     <section class="highlighted-articles">
       <h2 class="similar-article-title">See Similar Articles</h2>
       <a class="similar-article-link" href="events-article.html">
@@ -63,6 +72,7 @@
     </section>
   </main>
 
+  <!-- Site footer with navigation and copyright -->
   <footer class="site-footer">
     <div class="site-footer-content">
       <p>EH News - Student News at Edge Hill University</p>
@@ -75,7 +85,7 @@
       <p>&copy; 2026 EH News. All rights reserved.</p>
     </div>
   </footer>
-  <!-- Script to load article content from the locally stored JSON file. NOTE: The creation of this script was assisted by Claude.ai. -->
+  <!-- Script to load article content from local JSON data. NOTE: This script was prompted with assistance from GitHub CoPilot to connect article content to the corresponding article page. -->
   <script>
     fetch("./articles/students-article.json")
       .then((response) => response.json())
@@ -84,6 +94,7 @@
 
         document.getElementById("article-hero-image").src = data.hero.image.src;
         document.getElementById("article-hero-image").alt = data.hero.image.alt;
+        document.getElementById("article-author").textContent = `Author: ${data.author}`;
         document.getElementById("article-hero-kicker").textContent = data.hero.kicker;
         document.getElementById("event-hero-title").textContent = data.title;
 
