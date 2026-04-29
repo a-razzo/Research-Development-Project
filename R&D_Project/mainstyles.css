@@ -20,7 +20,6 @@ body {
 }
 
 h2{
-    font-weight: 300;
     font-size: 3rem;
 }
 
@@ -41,7 +40,7 @@ img {
   width: 100%;
   display: block;
   min-height: 150px;
-  object-position: center top;
+  object-position: center 15%;
 }
 
 /* AI Disclaimer styling */
@@ -379,8 +378,7 @@ main {
 
 .article-genre-links a {
   font-family: "Cormorant Garamond", sans-serif;
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
+  font-weight: 500;
   text-transform: uppercase;
   color: #1f2937;
   border: 1px solid #d7dde2;
@@ -607,6 +605,22 @@ main {
   grid-template-columns: repeat(4, 1fr);
 }
 
+/* As subgrid is a new feature, @support ensures it is only used for browsers that support it */
+@supports (grid-template-columns: subgrid) {
+  .article-grid-subgrid > article {
+    display: grid;
+    grid-template-columns: subgrid;
+    grid-column: span 1;
+    align-content: start;
+  }
+
+  .article-grid-subgrid > article > .ai-disclaimer-wrap,
+  .article-grid-subgrid > article > img,
+  .article-grid-subgrid > article > h3 {
+    grid-column: 1 / -1;
+  }
+}
+
 .events-page .highlighted-articles {
   gap: 1.3rem;
 }
@@ -721,6 +735,31 @@ main {
 }
 
 /* Article page content spacing */
+.article-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin: 0.65rem 0 1rem;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d7dde2;
+  border-radius: 0.4rem;
+  background: #ffffff;
+  color: #1f2937;
+}
+
+.article-back-icon {
+  width: 1rem;
+  height: 1rem;
+  min-height: 0;
+  object-fit: contain;
+}
+
+.article-back-link:hover,
+.article-back-link:focus-visible {
+  background: #eef2ff;
+  border-color: #b9a8e6;
+}
+
 .story-header {
   margin-bottom: 1.6rem;
 }
