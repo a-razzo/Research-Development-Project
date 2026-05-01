@@ -506,7 +506,7 @@ main {
 .poll-vote-form label,
 .poll-vote-form button {
   font-family: "Cormorant Garamond", sans-serif;
-  font-size: 1rem;
+  font-size: 1.5rem;
 }
 
 .article-genre-list,
@@ -527,14 +527,15 @@ main {
 .editors-choice-section {
   width: 100vw;
   margin-left: 50%;
+  margin-bottom: 1.5rem;
   transform: translateX(-50%);
   background: #dfe6ea;
-  padding: 1.25rem 0;
+  padding: 1.25rem;
 }
 
 .poll-section {
   margin-top: 2.7rem;
-  padding: 2.2rem 1rem;
+  padding: 5.2rem 1rem;
   background: #e8edd8;
   text-align: center;
 }
