@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="mainstyles.css">
+  <title>EH News - Tech Article</title>
+</head>
+<body>
+  <!-- Site header and main navigation -->
+  <header class="site-header">
+    <div class="site-header-content">
+      <a class="site-logo" href="index.html">EH News</a>
+      <nav class="site-navigation">
+        <a href="events.html">Events</a>
+        <a href="students.html">Students</a>
+        <a class="active" href="technology.html">Technology</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main article page content -->
+  <main class="story-page">
+    <a class="article-back-link" href="technology.html"><img class="article-back-icon" src="images/back-button.svg" alt="Go back to Technology">Back to Technology</a>
+    <p>DISCLAIMER: This article is not based on real events, any resemblance to actual events or persons is purely coincidental.</p>
+    <!-- Primary article content block -->
+    <article class="story-article">
+      <section class="story-header">
+        <span class="ai-disclaimer-wrap"><img id="article-hero-image" class="story-header-image" src="images/student-article-img-3.svg" alt="Event hero image">  <span class="ai-disclaimer-label">This Image is AI Generated</span></span>
+        <div class="story-header-text">
+          <p id="article-author" class="story-author">Author: </p>
+          <p id="article-hero-kicker" class="story-date">Mon 20 Apr 2026 09.14 BST</p>
+          <h1 id="event-hero-title">Article Content here...</h1>
+        </div>
+      </section>
+
+      <!-- Article summary table and main story sections -->
+      <div class="story-body">
+        <h2 id="event-summary-heading" class="summary-heading">The Summary</h2>
+
+        <div class="summary-table-wrap">
+          <table class="summary-table">
+            <thead id="event-summary-head"></thead>
+            <tbody id="event-summary-body"></tbody>
+          </table>
+        </div>
+
+        <p id="article-summary" class="story-summary"></p>
+
+        <section id="article-main-content" class="story-content"></section>
+      </div>
+    </article>
+    
+    <!-- Related article suggestions -->
+    <section class="highlighted-articles">
+      <h2 class="similar-article-title">See Similar Articles</h2>
+      <a class="similar-article-link" href="events-article.html">
+        <article>
+          <span class="ai-disclaimer-wrap"><img src="images/tech-careers-1.svg" alt="A promotional image for the Tech Hub Careers event showing a group of students and recruiters talking at a careers fair">  <span class="ai-disclaimer-label">This Image is AI Generated</span></span>
+          <h2>Tech Hub Careers June 12th: Where Students Get Hired</h2>
+          <p>Discover the opportunities for students at the upcoming Tech Hub Careers event.</p>
+        </article>
+      </a>
+      <a class="similar-article-link" href="students-article.html">
+        <article>
+          <span class="ai-disclaimer-wrap"><img src="images/student-article-img-2.svg" alt="Daniel reviewing his project notebooks before leaving for Washington DC">  <span class="ai-disclaimer-label">This Image is AI Generated</span></span>
+          <h2>Edge Hill Student Takes on DC AI Final</h2>
+          <p>Read how Daniel's R&D Project earned him a place in an international AI final.</p>
+        </article>
+      </a>
+    </section>
+  </main>
+
+  <!-- Site footer with navigation and copyright -->
+  <footer class="site-footer">
+    <div class="site-footer-content">
+      <p>EH News - Technology News at Edge Hill University</p>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="events.html">Events</a>
+        <a href="students.html">Students</a>
+        <a href="technology.html">Technology</a>
+      </nav>
+      <p>&copy; 2026 EH News. All rights reserved.</p>
+    </div>
+  </footer>
+  <!-- Script to load article content from local JSON data -->
+  <script src="js/technology-article.js"></script>
+</body>
+</html>

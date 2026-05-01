@@ -1,7 +1,7 @@
 services:
   poll-backend:
     build:
-      context: ./backend
+      context: ./R&D_Project/backend
       dockerfile: Dockerfile
     container_name: poll-backend
     ports:
