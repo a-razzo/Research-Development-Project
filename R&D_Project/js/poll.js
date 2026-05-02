@@ -1,3 +1,4 @@
+//Connecting the poll form to the backend container was done with the help of Github Copilot. The script handles form submission, communicates with the backend API, and updates the UI based on the poll results and user interactions.
 (function () {
   var pollForm = document.getElementById('weeklyPollForm');
   var pollSubmitBtn = document.getElementById('pollSubmitBtn');

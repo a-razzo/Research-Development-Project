@@ -1,3 +1,4 @@
+// This script was created with the support of Github Copilot to help connect the article page to the JSON data source.
 fetch("./articles/technology-article.json")
   .then((response) => response.json())
   .then((data) => {
